@@ -10,17 +10,55 @@
 		text-align: center;
 	}
 </style>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css" />
+<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/skel.min.js"></script>
+<script src="js/skel-panels.min.js"></script>
+<script src="js/init.js"></script>
+<noscript>
+	<link rel="stylesheet" href="css/skel-noscript.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/style-desktop.css" />
+</noscript>
+
 </head>
 <body>
 
-<b>Step 1</b>
+<!-- Header -->
+<div id="header-wrapper">
+
+	<div id="header" class="container">
+		<div id="logo"><h1><a href="#">GradStudio</a></h1></div>
+                <nav id="nav">
+                    <ul>
+                        <li class="current_page_item"><a href="index.html">Homepage</a></li>
+						<li><a href="faq.html">FAQ</a></li>
+						<li><a href="aboutus.html">About Us</a></li>
+                    </ul>
+                </nav>
+		
+	</div>
+
+</div>
+<!-- Header Ends Here -->
+
+<div id="page">
+<div class="container">
+<div class="row">
+	
+<div id="content" class="12u skel-cell-important">
+<article>
+<header>
+	<h2 class="main-title">Sign-up Survey</h2>
+</header>
 <p>Fill out the following quick survey to begin the project. Your responses
 will be anonymized and will never be shared with participants in this
 project.</p>
-
-<h3>Sign-up Survey </h3>
 <h3>Part 1</h3>
-<form action="/submit_form" method="post" onsubmit="return validateForm()">
+<form action="/dbconnect.php" method="post" onsubmit="return validateForm()">
 <ol>
 	<li id="age">
 		<b>Age:</b>&nbsp;<input type="text" name="age" size="3" maxlength="3" >
@@ -217,6 +255,19 @@ questions. Answer these questions honestly and thoughtfully. </p>
 	<td width="12.5%"><input type="radio" name="beliefs13" value="6"></input></td>
 	<td width="12.5%"><input type="radio" name="beliefs13" value="7"></input></td>
 </tr>
+
+<button type="submit">Submit</button>
+</form>
+
+
+</article>
+</div>
+</div>
+</div>
+</div>
+
+
+
 
 </body>
 </html>
