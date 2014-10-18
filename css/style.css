@@ -30,7 +30,7 @@ h1, h2, h3 {
 	margin: 0;
 	padding: 0;
 	font-weight: 300;
-	color: #CFCFCF;
+	color: #737373;
 }
 
 h2
@@ -44,9 +44,44 @@ p, ol, ul
 	margin-top: 1em;
 }
 
+b {
+	font-weight: 600;
+}
+
+ol
+{
+	line-height: 2;
+	list-style-type: decimal;
+}
+
+li 
+{
+	margin: 0.7em 0;
+}
+
 article {
-	padding: 2em;
+	padding: 3em;
 	line-height: 1.5;
+}
+
+table {
+	border-collapse:collapse;
+	border: 1px solid #737373;
+}
+
+table, td {
+	border-top: 1px solid #737373;
+	border-bottom: 1px solid #737373;
+	text-align: center;
+	padding: 0.25em;
+}
+
+td {
+	width: 12%;
+}
+
+td.td_column1 {
+	width: 16% !important;
 }
 
 p
@@ -104,6 +139,12 @@ a:hover
 	{
 		padding: 0.9em 2em;
 		font-size: 1.5em;
+	}
+	
+	.button-alt2
+	{
+		padding: 0.7em 1.5em;
+		font-size: 1em;
 	}
 
 /* List Style 1 */
@@ -752,7 +793,7 @@ a:hover
 	
 	header
 	{
-		margin-bottom: 3em;
+		margin-bottom: 0em;
 		position: relative;
 	}
 
@@ -811,7 +852,7 @@ a:hover
 
 	#page
 	{	
-		padding: 5em 0em 3em 0em;
+		padding: 1em 0em 2em 0em;
 	}
 
 /* Content */
