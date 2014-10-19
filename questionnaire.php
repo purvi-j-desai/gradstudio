@@ -422,6 +422,7 @@ questions. Answer these questions honestly and thoughtfully. </p>
 <!-- Copyright -->
 <div id="copyright" class="container">
 	Design: <a href="http://templated.co">TEMPLATED</a>
+	Images: © Catherine M. Hicks
 </div>
 
 </body>

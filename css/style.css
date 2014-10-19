@@ -773,6 +773,7 @@ a:hover
 		background: url(../images/banner.jpg) no-repeat center top;
 		background-size: cover;
 		position: relative;
+		height: 600px;
 	}
 	
 	#header-wrapper:before
@@ -782,8 +783,8 @@ a:hover
 		left: 0;
 		top: 0;
 		width: 100%;
-		height: 100%;
-		background: rgba(60,50,70,0.5);
+		/*height: 100%;*/
+		/*background: rgba(60,50,70,0.5);*/
 	}
 	
 	#header {
@@ -821,14 +822,16 @@ a:hover
 		padding: 3em 0em;
 		text-align: center;
 		z-index: 1;
-		position: relative;
+		position: absolute;
+		bottom: 50px;
 	}
 
 	#banner header h2
 	{
-		text-transform: uppercase;
-		font-size: 3em;
-		color: #FFF;
+		/*text-transform: uppercase;*/
+		font-size: 5.5em;
+		color: #000000;
+		font-family: "Overlock SC", serif;
 	}
 
 	#banner header .byline
@@ -839,6 +842,65 @@ a:hover
 	}
 	
 	#banner .button
+	{
+		margin-top: 0em;
+	}
+	
+/* Main text wrapper */
+
+	#maintext-wrapper
+	{
+		/*background: url(../images/banner.jpg) no-repeat center top;
+		background-size: cover;*/
+		position: relative;
+	}
+	
+	#maintext-wrapper:before
+	{
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		/*background: rgba(60,50,70,0.5);*/
+	}
+	
+	#maintext {
+		position: relative;
+		z-index: 1;
+	}
+	
+	#main_byline {
+		color: #585858;
+	}
+	
+/* Main text */
+
+	#maintext
+	{
+		overflow: hidden;
+		padding: 3em 0em;
+		text-align: center;
+		z-index: 1;
+		position: relative;
+	}
+
+	#maintext header h2
+	{
+		text-transform: uppercase;
+		font-size: 3em;
+		color: #FFF;
+	}
+
+	#maintext header .byline
+	{
+		padding: 0em 5em;
+		font-size: 1.40em;
+		line-height: 1.5;
+	}
+	
+	#maintext .button
 	{
 		margin-top: 0em;
 	}
