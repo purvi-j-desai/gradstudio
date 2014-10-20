@@ -5,7 +5,7 @@ $hostname = "localhost";
 $db = "gradstudio";
 
 $body2  = file_get_contents('php://input');
-echo $body2;
+//echo $body2;
 
 //connection to the database
 $dbhandle = mysqli_connect($hostname, $username, $password, $db);
@@ -23,7 +23,20 @@ is_enrolled ENUM('yes', 'no') NOT NULL,
 gpa FLOAT,
 is_native_eng ENUM('yes', 'no') NOT NULL,
 app_area VARCHAR(255) NOT NULL,
-ethnicity VARCHAR(255)
+ethnicity VARCHAR(255),
+beliefs1 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL, 
+beliefs2 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
+beliefs3 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
+beliefs4 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
+beliefs5 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
+beliefs6 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
+beliefs7 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
+beliefs8 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
+beliefs9 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
+beliefs10 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
+beliefs12 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
+beliefs13 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
+beliefs14 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL
 )";
 
 if (mysqli_query($dbhandle, $sql)) {
@@ -32,27 +45,13 @@ if (mysqli_query($dbhandle, $sql)) {
   echo "Error creating table: " . mysqli_error($dbhandle);
 }
 
-/*$age = $_POST['age'];
-echo $age . "  ";
-$gender = $_POST['gender'];
-echo $gender . "  ";
-$enrolled = $_POST['enrolled_in_college'];
-echo $enrolled . "  ";
-$gpa = $_POST['gpa'];
-echo $gpa . "  ";
-$english_speaker = $_POST['english_speaker'];
-echo $english_speaker . "  ";
-$area_of_study = $_POST['area_of_study'];
-echo $area_of_study . "  ";
-$ethnicity = $_POST['ethnicity'];
-echo $ethnicity . "  ";*/
-
 // Collect data from form
 $age = $_POST['age'];
 $gender = $_POST['gender'];
 $enrolled = $_POST['enrolled_in_college'];
 $gpa = $_POST['gpa'];
 $english_speaker = $_POST['english_speaker'];
+echo $english_speaker;
 $area_of_study = $_POST['area_of_study'];
 if ("other" == $area_of_study) $area_of_study = $_POST["area_of_study_other"];
 $ethnicity = $_POST['ethnicity'];
@@ -207,20 +206,18 @@ if ($error) {
 	$_SESSION['beliefs14'] = $beliefs14;
 	
 	// Go back to questionnaire
-	header('Location: /gradstudio/questionnaire.php');
+	header('Location: /questionnaire.php');
 }
 // If we make it to here, there are no errors
 
-$sql = "INSERT INTO survey (age, gender, is_enrolled, gpa, is_native_eng, app_area, ethnicity)
-VALUES ('$age', '$gender', '$enrolled', '$gpa', '$english_apeaker', '$area_of_study', '$ethnicity')
+$sql = "INSERT INTO survey (age, gender, is_enrolled, gpa, is_native_eng, app_area, ethnicity, beliefs1, beliefs2, beliefs3, beliefs4, beliefs5, beliefs6, beliefs7, beliefs8, beliefs9, beliefs10, beliefs12, beliefs13, beliefs14)
+VALUES ('$age', '$gender', '$enrolled', '$gpa', '$english_speaker', '$area_of_study', '$ethnicity', '$beliefs1', '$beliefs2', '$beliefs3', '$beliefs4', '$beliefs5', '$beliefs6', '$beliefs7', '$beliefs8', '$beliefs9', '$beliefs10', '$beliefs12', '$beliefs13', '$beliefs14')
 ";
 
 if (!mysqli_query($dbhandle,$sql)) {
  die('Error: ' . mysqli_error($dbhandle));
 }
-echo "1 record added";
 
-Print "Your table has been created";
 
 //header('Location: /');
 
