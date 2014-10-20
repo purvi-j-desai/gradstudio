@@ -220,5 +220,6 @@ if (!mysqli_query($dbhandle,$sql)) {
 
 
 //header('Location: /');
+session_destroy();
 
 ?>
