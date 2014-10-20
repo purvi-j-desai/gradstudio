@@ -541,8 +541,17 @@ questions. Answer these questions honestly and thoughtfully. </p>
 	<td>7 <br/>Very true of me</td>
 </tr>
 </table>
-</ul>
-<button class="button button-alt2" type="submit">Submit and Continue</button>
+</ul><br/>
+<p><b style="font-size: 110%">Honor Code:</b></p>
+<p>I agree to participate respectfully in this peer-assessment project,
+giving thoughtful and useful feedback to my peers in exchange for
+getting similar feedback on my essays. I agree to respect the
+intellectual property of others, and will not use any material in this
+project other than my own. I am aware that both initial and revised
+essays are the sole property of their author. I agree to be courteous in
+all of my interactions in this project. </p>
+<p>Click below to indicate your agreement and consent to all information in this form.</p>
+<button class="button button-alt2" type="submit">Submit</button>
 </form>
 
 
