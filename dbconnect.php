@@ -20,7 +20,7 @@ $sql = "CREATE TABLE IF NOT EXISTS survey
 age INT NOT NULL,
 gender ENUM('male', 'female', 'other') NOT NULL,
 is_enrolled ENUM('yes', 'no') NOT NULL,
-gpa INT,
+gpa FLOAT,
 is_native_eng ENUM('yes', 'no') NOT NULL,
 app_area VARCHAR(255) NOT NULL,
 ethnicity VARCHAR(255)
@@ -58,6 +58,6 @@ echo "1 record added";
 
 Print "Your table has been created";
 
-header('Location: /');
+//header('Location: /');
 
 ?>
