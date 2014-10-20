@@ -23,8 +23,28 @@
 	<link rel="stylesheet" href="css/style-desktop.css" />
 </noscript>
 
+<script type="text/javascript">
+
+/*function sticky_relocate() {
+  var window_top = $(window).scrollTop();
+  var div_top = $('#sticky_anchor').offset().top;
+  if (window_top > div_top) {
+    $('#survey_header').addClass('sticky');
+  } else {
+    $('#survey_header').removeClass('sticky');
+  }
+}
+
+$(function() {
+  $(window).scroll(sticky_relocate);
+  sticky_relocate();
+});*/
+
+</script>
+
+
 <style>
-.errornote, #errormsg { 
+.errornote, #errormsg, .errorstar { 
 	color: red;
 	display: none;
 }
@@ -32,6 +52,12 @@
 .server_error {
 	color: red;
 }
+
+#survey_header.sticky {
+     position: fixed;
+     top: 0;
+}
+
 </style>
 
 </head>
@@ -127,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!-- Header -->
-<div id="header-wrapper">
+<div id="header-wrapper-small">
 
 	<div id="header" class="container">
 		<div id="logo"><h1><a href="#">GradStudio</a></h1></div>
@@ -160,37 +186,34 @@ project.</p><br/>
 <h2>Part 1</h2>
 <!--<form action="/dbconnect.php" method="post" onsubmit="return validateForm()">-->
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validateForm()">
-<ol>
+<ul>
 	<li id="age">
-		<span class="errorstar">*</span>
-		<b>Age:</b>&nbsp;<input type="text" name="age" size="4" maxlength="3" >
-		<span class="errornote">Must be a number.</span>
+		<span class="errorstar">*</span><span class="errornote">Must be a number.</span>
 		<span class="server_error"><?php echo $age_error;?></span>
+		<b>Age:</b>&nbsp;<input type="text" name="age" size="4" maxlength="3" >
 	</li>
 	<li id="gender">
-		<span class="errorstar">*</span>
+		<span class="errorstar">*</span><span class="server_error"><?php echo $gender_error;?></span>
 		<b>Gender: </b><input type="radio" name="gender" value="male">Male</input>&nbsp;&nbsp;&nbsp;
 		<input type="radio" name="gender" value="female">Female</input>&nbsp;&nbsp;&nbsp;
 		<input type="radio" name="gender" value="other">Other</input>
-		<span class="server_error"><?php echo $gender_error;?></span>
 	</li>
 	<li id="enrolled_in_college">
-		<span class="errorstar">*</span>
+		<span class="errorstar">*</span><span class="server_error"><?php echo $enrolled_in_college_error;?></span>
 		<b>I am enrolled in College: </b><input type="radio" name="enrolled_in_college" value="yes">Yes</input>&nbsp;&nbsp;&nbsp;
-		<input type="radio" name="enrolled_in_college" value="no">No</input>&nbsp;<span class="server_error"><?php echo $enrolled_in_college_error;?></span><br/>
+		<input type="radio" name="enrolled_in_college" value="no">No</input>&nbsp;<br/>
 		<span id="gpa">If Yes, enter your GPA (optional): &nbsp; <input type="text" name="gpa" size="4" maxlength="4" ></input>
 		<span class="errornote">Must be a number.</span></span><span class="server_error"><?php echo $gpa_error;?></span>
 		
 	</li>
 	<li id="english_speaker">
-		<span class="errorstar">*</span>
+		<span class="errorstar">*</span><span class="server_error"><?php echo $english_speaker_error;?></span>
 		<b>I am a native or fluent English language speaker: </b><input type="radio" name="english_speaker" value="yes">Yes</input>&nbsp;&nbsp;&nbsp;
 		<input type="radio" name="english_speaker" value="no">No</input>&nbsp;&nbsp;&nbsp;
-		<span class="server_error"><?php echo $english_speaker_error;?></span>
 	</li>
 	<li id="area_of_study">
-		<span class="errorstar">*</span>
-		<b>Graduate application area:</b><span class="server_error"><?php echo $area_of_study_error;?></span><br/>
+		<span class="errorstar">*</span><span class="server_error"><?php echo $area_of_study_error;?></span>
+		<b>Graduate application area:</b><br/>
 		<input type="radio" name="area_of_study" value="arts_humanities">Arts/Humanities</input><br/>
 		<input type="radio" name="area_of_study" value="science">Science</input><br/>
 		<input type="radio" name="area_of_study" value="social_science">Social Science</input><br/>
@@ -208,15 +231,15 @@ project.</p><br/>
 		<input type="radio" name="ethnicity" value="other">Other: </input>
 		<input type="text" name="ethnicity_other" size="30" maxlength="30"></input><br/>
 	</li>
-</ol>	
+</ul>	
 <br/>
 <h2>Part 2</h2><br/>
 <p>The following is a short survey about your beliefs and opinions. It
 is important that you know there are no right or wrong answers to these
 questions. Answer these questions honestly and thoughtfully. </p>
-<ol>
+<ul>
 <table>
-<tr>
+<div id="sticky_anchor"><tr id="survey_header">
 	<td class="td_column1"></td>
 	<td>1 <br/>Not at all true of me</td>
 	<td>2 <br/>Not true of me</td>
@@ -225,11 +248,11 @@ questions. Answer these questions honestly and thoughtfully. </p>
 	<td>5 <br/>Mostly true of me</td>
 	<td>6 <br/>True of me</td>
 	<td>7 <br/>Very true of me</td>
-</tr>
+</tr></div>
 <tr>
 	<td class="td_column1"><li id="beliefs1">
-	<span class="errorstar">*</span> I finish what I begin
-	<span class="server_error"><?php echo $beliefs1_error;?></span></li></td>
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs1_error;?></span> 
+	I finish what I begin</li></td>
 	<td><input type="radio" name="beliefs1" value="1"></input></td>
 	<td><input type="radio" name="beliefs1" value="2"></input></td>
 	<td><input type="radio" name="beliefs1" value="3"></input></td>
@@ -240,8 +263,8 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </tr>
 <tr>
 	<td class="td_column1"><li id="beliefs2">
-	<span class="errorstar">*</span> I work very hard. I keep working when others stop to take a break
-	<span class="server_error"><?php echo $beliefs2_error;?></span></li></td>
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs2_error;?></span>
+	I work very hard. I keep working when others stop to take a break</li></td>
 	<td><input type="radio" name="beliefs2" value="1"></input></td>
 	<td><input type="radio" name="beliefs2" value="2"></input></td>
 	<td><input type="radio" name="beliefs2" value="3"></input></td>
@@ -252,9 +275,9 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </tr>
 <tr>
 	<td class="td_column1"><li id="beliefs3">
-	<span class="errorstar">*</span> I stay interested in my goals, even if they take a
-	 long time (months or years) to complete
-	 <span class="server_error"><?php echo $beliefs3_error;?></span></li></td>
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs3_error;?></span> 
+	I stay interested in my goals, even if they take a long time (months or years) to complete
+	</li></td>
 	<td><input type="radio" name="beliefs3" value="1"></input></td>
 	<td><input type="radio" name="beliefs3" value="2"></input></td>
 	<td><input type="radio" name="beliefs3" value="3"></input></td>
@@ -265,8 +288,8 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </tr>
 <tr>
 	<td class="td_column1"><li id="beliefs4">
-	<span class="errorstar">*</span> I am diligent, I never give up.
-	<span class="server_error"><?php echo $beliefs4_error;?></span></li></td>
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs4_error;?></span> 
+	I am diligent, I never give up.</li></td>
 	<td><input type="radio" name="beliefs4" value="1"></input></td>
 	<td><input type="radio" name="beliefs4" value="2"></input></td>
 	<td><input type="radio" name="beliefs4" value="3"></input></td>
@@ -277,8 +300,8 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </tr>
 <tr>
 	<td class="td_column1"><li id="beliefs5">
-	<span class="errorstar">*</span> When I take a class, I want to learn as much as possible
-	<span class="server_error"><?php echo $beliefs5_error;?></span></li></td>
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs5_error;?></span> 
+	When I take a class, I want to learn as much as possible</li></td>
 	<td><input type="radio" name="beliefs5" value="1"></input></td>
 	<td><input type="radio" name="beliefs5" value="2"></input></td>
 	<td><input type="radio" name="beliefs5" value="3"></input></td>
@@ -289,8 +312,8 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </tr>
 <tr>
 	<td class="td_column1"><li id="beliefs6">
-	<span class="errorstar">*</span> I ask myself questions to make sure I know the material I have been studying.
-	<span class="server_error"><?php echo $beliefs6_error;?></span></li></td>
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs6_error;?></span> 
+	I ask myself questions to make sure I know the material I have been studying.</li></td>
 	<td><input type="radio" name="beliefs6" value="1"></input></td>
 	<td><input type="radio" name="beliefs6" value="2"></input></td>
 	<td><input type="radio" name="beliefs6" value="3"></input></td>
@@ -301,8 +324,8 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </tr>
 <tr>
 	<td class="td_column1"><li id="beliefs7">
-	<span class="errorstar">*</span> When work is hard I either give up or study only the easy parts. 
-	<span class="server_error"><?php echo $beliefs7_error;?></span></li></td>
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs7_error;?></span> 
+	When work is hard I either give up or study only the easy parts. </li></td>
 	<td><input type="radio" name="beliefs7" value="1"></input></td>
 	<td><input type="radio" name="beliefs7" value="2"></input></td>
 	<td><input type="radio" name="beliefs7" value="3"></input></td>
@@ -313,9 +336,9 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </tr>
 <tr>
 	<td class="td_column1"><li id="beliefs8">
-	<span class="errorstar">*</span> I work on practice exercises and answer end of 
-	chapter questions even when I don't have to.
-	<span class="server_error"><?php echo $beliefs8_error;?></span> </li></td>
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs8_error;?></span> 
+	I work on practice exercises and answer end of 
+	chapter questions even when I don't have to.</li></td>
 	<td><input type="radio" name="beliefs8" value="1"></input></td>
 	<td><input type="radio" name="beliefs8" value="2"></input></td>
 	<td><input type="radio" name="beliefs8" value="3"></input></td>
@@ -326,8 +349,9 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </tr>
 <tr>
 	<td class="td_column1"><li id="beliefs9">
-	<span class="errorstar">*</span> Even when study materials are dull and uninteresting, I keep working until I finish.
-	<span class="server_error"><?php echo $beliefs9_error;?></span> </li></td>
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs9_error;?></span> 
+	Even when study materials are dull and uninteresting, I keep working until I finish.
+	</li></td>
 	<td><input type="radio" name="beliefs9" value="1"></input></td>
 	<td><input type="radio" name="beliefs9" value="2"></input></td>
 	<td><input type="radio" name="beliefs9" value="3"></input></td>
@@ -338,8 +362,8 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </tr>
 <tr>
 	<td class="td_column1"><li id="beliefs10">
-	<span class="errorstar">*</span> Before I begin studying I think about the things I will need to do to learn.
-	<span class="server_error"><?php echo $beliefs10_error;?></span> </li></td>
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs10_error;?></span> 
+	Before I begin studying I think about the things I will need to do to learn.</li></td>
 	<td><input type="radio" name="beliefs10" value="1"></input></td>
 	<td><input type="radio" name="beliefs10" value="2"></input></td>
 	<td><input type="radio" name="beliefs10" value="3"></input></td>
@@ -350,8 +374,9 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </tr>
 <tr>
 	<td class="td_column1"><li id="beliefs11">
-	<span class="errorstar">*</span> I often find that I have been reading for class but don't know what it is all about.
-	<span class="server_error"><?php echo $beliefs11_error;?></span> </li></td>
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs11_error;?></span> 
+	I often find that I have been reading for class but don't know what it is all about.
+	</li></td>
 	<td><input type="radio" name="beliefs11" value="1"></input></td>
 	<td><input type="radio" name="beliefs11" value="2"></input></td>
 	<td><input type="radio" name="beliefs11" value="3"></input></td>
@@ -362,9 +387,10 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </tr>
 <tr>
 	<td class="td_column1"><li id="beliefs12">
-	<span class="errorstar">*</span> I find that when the teacher is talking I 
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs12_error;?></span> 
+	I find that when the teacher is talking I 
 	think of other things and don't really listen to what is being said.
-	<span class="server_error"><?php echo $beliefs12_error;?></span> </li></td>
+	</li></td>
 	<td><input type="radio" name="beliefs12" value="1"></input></td>
 	<td><input type="radio" name="beliefs12" value="2"></input></td>
 	<td><input type="radio" name="beliefs12" value="3"></input></td>
@@ -375,8 +401,8 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </tr>
 <tr>
 	<td class="td_column1"><li id="beliefs13">
-	<span class="errorstar">*</span> When I'm reading I stop once in a while and go over what I have read.
-	<span class="server_error"><?php echo $beliefs13_error;?></span> </li></td>
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs13_error;?></span> 
+	When I'm reading I stop once in a while and go over what I have read.</li></td>
 	<td><input type="radio" name="beliefs13" value="1"></input></td>
 	<td><input type="radio" name="beliefs13" value="2"></input></td>
 	<td><input type="radio" name="beliefs13" value="3"></input></td>
@@ -387,8 +413,8 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </tr>
 <tr>
 	<td class="td_column1"><li id="beliefs14">
-	<span class="errorstar">*</span> I work hard to get a good grade even when I don't like a class.
-	<span class="server_error"><?php echo $beliefs14_error;?></span>  </li></td>
+	<span class="errorstar">*</span><span class="server_error"><?php echo $beliefs14_error;?></span> 
+	I work hard to get a good grade even when I don't like a class.</li></td>
 	<td><input type="radio" name="beliefs14" value="1"></input></td>
 	<td><input type="radio" name="beliefs14" value="2"></input></td>
 	<td><input type="radio" name="beliefs14" value="3"></input></td>
@@ -408,6 +434,7 @@ questions. Answer these questions honestly and thoughtfully. </p>
 	<td>7 <br/>Very true of me</td>
 </tr>
 </table>
+</ul>
 <button class="button button-alt2" type="submit">Submit and Continue</button>
 </form>
 

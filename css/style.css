@@ -60,7 +60,7 @@ li
 }
 
 article {
-	padding: 3em;
+	padding: 1em 3em 3em 3em;
 	line-height: 1.5;
 }
 
@@ -787,6 +787,25 @@ a:hover
 		/*background: rgba(60,50,70,0.5);*/
 	}
 	
+	#header-wrapper-small
+	{
+		background: url(../images/banner_small.jpg) no-repeat center center;
+		background-size: cover;
+		position: relative;
+		height: 120px;
+	}
+	
+	#header-wrapper-small:before
+	{
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(60,50,70,0.2);
+	}
+	
 	#header {
 		position: relative;
 		z-index: 1;
@@ -824,6 +843,7 @@ a:hover
 		z-index: 1;
 		position: absolute;
 		bottom: 50px;
+		width: 100%;
 	}
 
 	#banner header h2
@@ -832,6 +852,7 @@ a:hover
 		font-size: 5.5em;
 		color: #000000;
 		font-family: "Overlock SC", serif;
+		text-align: center;
 	}
 
 	#banner header .byline
