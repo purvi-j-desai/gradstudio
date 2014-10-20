@@ -148,7 +148,7 @@ will be anonymized and will never be shared with participants in this
 project.</p><br/>
 <div id="errormsg" style="<?php if ($error) echo 'display: block !important'; ?>">Please answer all required questions.</div>
 <h2>Part 1</h2>
-<form action="/gradstudio/dbconnect.php" method="post" onsubmit="return validateForm()">
+<form action="http://d.ucsd.edu/gradstudio/dbconnect.php" method="post" onsubmit="return validateForm()">
 <!-- <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validateForm()">-->
 <ul>
 	<li id="age">
