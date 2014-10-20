@@ -25,29 +25,29 @@ function validateForm() {
 	var beliefs14 = $("input:radio[name=beliefs14]:checked").val();
 		
 	// Remove previous notes
-	$(".errorstar").css("color", "#686868");
+	$(".errorstar").css("display", "none");
 	$(".errornote").css("display", "none");
 	$("#errormsg").css("display", "none");
 	
 	if (!gender) {
 		valid = false;
-		$("#gender").find(".errorstar").css("color", "red");
+		$("#gender").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!age) {
 		valid = false;
-		$("#age").find(".errorstar").css("color", "red");
+		$("#age").find(".errorstar").css("display", "inline");
 	}
 	
 	else if (isNaN(age)) { // age must be a number
 		valid = false;
-		$("#age").find(".errorstar").css("color", "red");
+		$("#age").find(".errorstar").css("display", "inline");
 		$("#age").find(".errornote").css("display", "inline");
 	}
 	
 	if (!enrolled_in_college) {
 		valid = false;
-		$("#enrolled_in_college").find(".errorstar").css("color", "red");
+		$("#enrolled_in_college").find(".errorstar").css("display", "inline");
 	}
 	
 	if (gpa && (isNaN(gpa))) {
@@ -57,88 +57,88 @@ function validateForm() {
 	
 	if (!english_speaker) {
 		valid = false;
-		$("#english_speaker").find(".errorstar").css("color", "red");
+		$("#english_speaker").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!area_of_study) {
 		valid = false;
-		$("#area_of_study").find(".errorstar").css("color", "red");
+		$("#area_of_study").find(".errorstar").css("display", "inline");
 	} else if (area_of_study == "other") { // check for "other"
 		area_of_study = $("input:text[name=area_of_study_other]").val();
 		if (!area_of_study) {
 			valid = false;
-			$("#area_of_study").find(".errorstar").css("color", "red");
+			$("#area_of_study").find(".errorstar").css("display", "inline");
 		}
 	}
 	
 	if (!beliefs1) {
 		valid = false;
-		$("#beliefs1").find(".errorstar").css("color", "red");
+		$("#beliefs1").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!beliefs2) {
 		valid = false;
-		$("#beliefs2").find(".errorstar").css("color", "red");
+		$("#beliefs2").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!beliefs3) {
 		valid = false;
-		$("#beliefs3").find(".errorstar").css("color", "red");
+		$("#beliefs3").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!beliefs4) {
 		valid = false;
-		$("#beliefs4").find(".errorstar").css("color", "red");
+		$("#beliefs4").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!beliefs5) {
 		valid = false;
-		$("#beliefs5").find(".errorstar").css("color", "red");
+		$("#beliefs5").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!beliefs6) {
 		valid = false;
-		$("#beliefs6").find(".errorstar").css("color", "red");
+		$("#beliefs6").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!beliefs7) {
 		valid = false;
-		$("#beliefs7").find(".errorstar").css("color", "red");
+		$("#beliefs7").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!beliefs8) {
 		valid = false;
-		$("#beliefs8").find(".errorstar").css("color", "red");
+		$("#beliefs8").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!beliefs9) {
 		valid = false;
-		$("#beliefs9").find(".errorstar").css("color", "red");
+		$("#beliefs9").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!beliefs10) {
 		valid = false;
-		$("#beliefs10").find(".errorstar").css("color", "red");
+		$("#beliefs10").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!beliefs11) {
 		valid = false;
-		$("#beliefs11").find(".errorstar").css("color", "red");
+		$("#beliefs11").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!beliefs12) {
 		valid = false;
-		$("#beliefs12").find(".errorstar").css("color", "red");
+		$("#beliefs12").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!beliefs13) {
 		valid = false;
-		$("#beliefs13").find(".errorstar").css("color", "red");
+		$("#beliefs13").find(".errorstar").css("display", "inline");
 	}
 	
 	if (!beliefs14) {
 		valid = false;
-		$("#beliefs14").find(".errorstar").css("color", "red");
+		$("#beliefs14").find(".errorstar").css("display", "inline");
 	}
 	
 	
