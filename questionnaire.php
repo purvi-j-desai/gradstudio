@@ -23,6 +23,12 @@
 	<link rel="stylesheet" href="css/style-desktop.css" />
 </noscript>
 
+<style type="text/css">
+html {
+	height: 100%;
+}
+</style>
+
 <script type="text/javascript">
 
 /*function sticky_relocate() {
@@ -124,6 +130,7 @@ $beliefs14 = $_SESSION['beliefs14'];
                 <nav id="nav">
                     <ul>
                         <li class="current_page_item"><a href="index.html">Homepage</a></li>
+                        <li><a href="instructions.html">Instructions</a></li>
 						<li><a href="faq.html">FAQ</a></li>
 						<li><a href="aboutus.html">About Us</a></li>
                     </ul>
@@ -148,7 +155,7 @@ will be anonymized and will never be shared with participants in this
 project.</p><br/>
 <div id="errormsg" style="<?php if ($error) echo 'display: block !important'; ?>">Please answer all required questions.</div>
 <h2>Part 1</h2>
-<form action="http://d.ucsd.edu/gradstudio/dbconnect.php" method="post" onsubmit="return validateForm()">
+<form action="dbconnect.php" method="post" onsubmit="return validateForm()">
 <!-- <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validateForm()">-->
 <ul>
 	<li id="age">

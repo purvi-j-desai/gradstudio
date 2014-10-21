@@ -206,7 +206,7 @@ if ($error) {
 	$_SESSION['beliefs14'] = $beliefs14;
 	
 	// Go back to questionnaire
-	header('Location: /questionnaire.php');
+	header('Location: /gradstudio/questionnaire.php');
 }
 // If we make it to here, there are no errors
 
@@ -219,7 +219,7 @@ if (!mysqli_query($dbhandle,$sql)) {
 }
 
 
-//header('Location: /');
+header('Location: /gradstudio/postsurvey.html');
 session_destroy();
 
 ?>

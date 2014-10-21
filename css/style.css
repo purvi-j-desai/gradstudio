@@ -15,6 +15,18 @@ body
 	font-family: 'Open Sans', sans-serif;
 	font-size: 10pt;
 	color: #686868;
+	height: 100%;
+}
+
+#body_wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin-bottom: -20px;
+}
+
+div#page {
+	padding-bottom: 20px;
 }
 
 body, #skel-panels-pageWrapper
@@ -42,6 +54,10 @@ h2
 p, ol, ul
 {
 	margin-top: 1em;
+}
+
+li ol {
+	padding-left: 30px;
 }
 
 b {
@@ -101,6 +117,11 @@ a
 a:hover
 {
 	text-decoration: none;
+}
+
+#completed_step {
+	color: green !important;
+	text-decoration: line-through;
 }
 
 /* Image Style 1 */
@@ -1040,6 +1061,7 @@ a:hover
 		/*border-top: 1px solid #212124;*/
 		text-align: center;
 		height: 20px;
+		width: 100%;
 	}
 	
 	#copyright p
@@ -1057,9 +1079,13 @@ a:hover
 		text-decoration: none;
 	}
 
-
-
-
+	#body_wrapper:after {
+	    content: "";
+	    display: block;
+	}
+	#body_wrapper:after {
+	    height: 20px; 
+	}
 
 
 
