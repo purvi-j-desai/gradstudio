@@ -26,6 +26,10 @@ h3
 	font-size: 1.00em !important;
 }
 
+#maintext header .byline {
+	padding: 0em 1em;
+}
+
 .container
 {
 	padding: 0px 15px;
