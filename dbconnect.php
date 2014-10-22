@@ -220,8 +220,8 @@ if ($error) {
 }
 // If we make it to here, there are no errors
 
-$sql = "INSERT INTO survey (age, gender, is_enrolled, gpa, is_native_eng, app_area, ethnicity, beliefs1, beliefs2, beliefs3, beliefs4, beliefs5, beliefs6, beliefs7, beliefs8, beliefs9, beliefs10, beliefs12, beliefs13, beliefs14)
-VALUES ('$age', '$gender', '$enrolled', '$gpa', '$english_speaker', '$area_of_study', '$ethnicity', '$beliefs1', '$beliefs2', '$beliefs3', '$beliefs4', '$beliefs5', '$beliefs6', '$beliefs7', '$beliefs8', '$beliefs9', '$beliefs10', '$beliefs12', '$beliefs13', '$beliefs14')
+$sql = "INSERT INTO survey (email_address, age, gender, is_enrolled, gpa, is_native_eng, app_area, ethnicity, beliefs1, beliefs2, beliefs3, beliefs4, beliefs5, beliefs6, beliefs7, beliefs8, beliefs9, beliefs10, beliefs12, beliefs13, beliefs14)
+VALUES ('$email_address', '$age', '$gender', '$enrolled', '$gpa', '$english_speaker', '$area_of_study', '$ethnicity', '$beliefs1', '$beliefs2', '$beliefs3', '$beliefs4', '$beliefs5', '$beliefs6', '$beliefs7', '$beliefs8', '$beliefs9', '$beliefs10', '$beliefs12', '$beliefs13', '$beliefs14')
 ";
 
 if (!mysqli_query($dbhandle,$sql)) {
