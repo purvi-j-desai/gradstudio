@@ -1,4 +1,5 @@
 <?php
+
 $username = "gs-admin";
 $password = "Thu,Nov16";
 $hostname = "localhost";
@@ -265,6 +266,7 @@ if (!$result) {
 }
 $row = $result->fetch_row();
 $next_condition = $row['0'];
+$_SESSION['next_condition'] = $next_condition;
 
 // update next_condition in table so next user will get sent to the other condition
 if ($next_condition == "review") {
@@ -278,41 +280,9 @@ if (!mysqli_query($dbhandle,$sql)) {
  die('Error: ' . mysqli_error($dbhandle));
 }
 
-// Send email to user
-require 'PHPMailerAutoload.php';
-echo '1';
-$mail = new PHPMailer;
-echo '2';
-$mail->isSMTP();
-$mail->Host = 'smtp.gmail.com';
-$mail->SMTPAuth = true;
-$mail->Username = 'GradStudioProject@gmail.com';
-$mail->Password = 'essentialreview';
-$mail->SMTPSecure = 'tls';
-$mail->Port = 587;
-$mail->From = 'GradStudioProject@gmail.com';
-$mail->addAddress('$email_address');
-$mail->WordWrap = 50;
-$mail->isHTML(true);
+$email_address = "ailie.fraser8@gmail.com";
+$next_condition = "outline";
 
-$mail->Subject = "Welcome to the Grad Studio Project!";
-$mail->Body = "Welcome to the Grad Studio Project! blah blah blah <br/>
-			you have been placed in the $next_condition style group. Whoops I wasn't supposed
-			to tell you that. oh well too bad. click <a href='http://peerstudio.org'>here</a>
-			to go to peer studio ok bye.";
-$mail->AltBody = "Welcome to the Grad Studio Project! blah blah blah\n
-			you have been placed in the $next_condition style group. Whoops I wasn't supposed
-			to tell you that. oh well too bad. click the link below to go to peer studio\n
-			http://peerstudio.org ok bye.";
-echo '3';
-if (!$mail->send()) {
-	echo "did not send email";
-	echo 'mailer error: ' . $mail->ErrorInfo;
-} else {
-	echo "sent email";
-}
-
-//header('Location: /gradstudio/postsurvey.html');
-session_destroy();
+header("Location: /gradstudio/postsurvey.php");
 
 ?>
