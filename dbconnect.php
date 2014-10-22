@@ -278,9 +278,17 @@ if (!mysqli_query($dbhandle,$sql)) {
  die('Error: ' . mysqli_error($dbhandle));
 }
 
-// Send email
+// Send email to user
+//ini_set("SMTP", "smtp.gmail.com");
+//ini_set("sendmail_from", "GradStudioProject@gmail.com");
 
-header('Location: /gradstudio/postsurvey.html');
+$message = "this is a test! your condition is $next_condition";
+$headers = "From: GradStudioProject@gmail.com";
+
+mail("ailie.fraser8@gmail.com", "test", $message, $headers);
+echo "sent email";
+
+//header('Location: /gradstudio/postsurvey.html');
 session_destroy();
 
 ?>
