@@ -77,6 +77,7 @@ session_start();
 // Get error and form data
 $error = $_SESSION['error'];
 
+$email_address_error = $_SESSION['email_address_error'];
 $age_error = $_SESSION['age_error'];
 $gender_error = $_SESSION['gender_error'];
 $enrolled_in_college_error = $_SESSION['enrolled_in_college_error'];
@@ -98,6 +99,7 @@ $beliefs12_error = $_SESSION['beliefs12_error'];
 $beliefs13_error = $_SESSION['beliefs13_error'];
 $beliefs14_error = $_SESSION['beliefs14_error'];
 
+$email_address = $_SESSION['email_address'];
 $age = $_SESSION['age'];
 $gender = $_SESSION['gender'];
 $enrolled_in_college = $_SESSION['enrolled_in_college'];

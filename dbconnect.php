@@ -191,6 +191,7 @@ $_SESSION['error'] = $error;
 
 if ($error) {
 	// Save data so the form will still be filled out
+	$_SESSION['email_address'] = $email_address;
 	$_SESSION['age'] = $age;
 	$_SESSION['gender'] = $gender;
 	$_SESSION['enrolled_in_college'] = $enrolled;
@@ -267,7 +268,7 @@ $next_condition = $row['0'];
 
 $mysqli->close();
 
-//header('Location: /gradstudio/postsurvey.html');
+header('Location: /gradstudio/postsurvey.html');
 session_destroy();
 
 ?>
