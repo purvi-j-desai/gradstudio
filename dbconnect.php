@@ -265,11 +265,8 @@ if (!$result) {
 }
 $row = $result->fetch_row();
 $next_condition = $row['0'];
-echo $next_condition;
-
-$mysqli->close();
 
 header('Location: /gradstudio/postsurvey.html');
 session_destroy();
-echo "bye";
+
 ?>
