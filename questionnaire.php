@@ -69,7 +69,6 @@ $(function() {
 </head>
 <body>
 
-<!-- server side validation -->
 <?php
 
 session_start();
