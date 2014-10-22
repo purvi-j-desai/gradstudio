@@ -556,7 +556,8 @@ getting similar feedback on my essays. I agree to respect the
 intellectual property of others, and will not use any material in this
 project other than my own. I am aware that both initial and revised
 essays are the sole property of their author. I agree to be courteous in
-all of my interactions in this project. </p>
+all of my interactions in this project. I will not reveal any personal information about 
+myself or others in the materials I submit for review. </p>
 <p>Click below to indicate your agreement and consent to all information in this form.</p>
 <button class="button button-alt2" type="submit">Submit</button>
 </form>
