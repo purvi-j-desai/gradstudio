@@ -6,6 +6,7 @@ Email was sent successfully!
 </html>
 
 <?php
+session_start();
 $email_address = $_SESSION['email_address'];
 $next_condition = $_SESSION['next_condition'];
 echo $email_address;
