@@ -254,9 +254,9 @@ if (!$result) {
 }
 $row = $result->fetch_row();
 echo $row['0'];
-echo size($row['0']);
-echo $row['1'];
-echo size($row['1']);
+//echo size($row['0']);
+//echo $row['1'];
+//echo size($row['1']);
 
 $mysqli->close();
 
