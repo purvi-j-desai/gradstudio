@@ -102,7 +102,7 @@ if (empty($enrolled_in_college)) {
 	$_SESSION['enrolled_in_college_error'] = "*";
 }
 
-if (!empty($gpa) || !is_numeric($gpa)) {
+if (!empty($gpa) && !is_numeric($gpa)) {
 	$error = true;
 	$_SESSION['gpa_error'] = "Must be a number.";
 }
