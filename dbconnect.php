@@ -252,7 +252,7 @@ $result = mysqli_query($dbhandle, $sql);
 if (!$result) {
 	die('Error: ' . mysqli_error($dbhandle));
 }
-$row = mysql_fetch_row($result);
+$row = mysqli_fetch_row($result);
 echo $row['next_condition'];
 
 
