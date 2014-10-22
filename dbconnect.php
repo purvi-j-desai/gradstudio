@@ -97,7 +97,7 @@ if (empty($gender)) {
 	$_SESSION['gender_error'] = "*";
 }
 
-if (empty($enrolled_in_college)) {
+if (empty($enrolled)) {
 	$error = true;
 	$_SESSION['enrolled_in_college_error'] = "*";
 }
