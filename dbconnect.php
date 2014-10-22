@@ -252,9 +252,13 @@ $result = mysqli_query($dbhandle, $sql);
 if (!$result) {
 	die('Error: ' . mysqli_error($dbhandle));
 }
-$row = mysqli_fetch_row($result);
-echo $row['next_condition'];
+$row = $result->fetch_row();
+echo $row['0'];
+echo size($row['0']);
+echo $row['1'];
+echo size($row['1']);
 
+$mysqli->close();
 
 //header('Location: /gradstudio/postsurvey.html');
 session_destroy();
