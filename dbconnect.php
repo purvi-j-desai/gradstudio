@@ -216,6 +216,7 @@ if ($error) {
 	
 	// Go back to questionnaire
 	header('Location: /gradstudio/questionnaire.php');
+	exit(1);
 }
 // If we make it to here, there are no errors
 
