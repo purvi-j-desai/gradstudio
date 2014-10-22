@@ -51,7 +51,6 @@ $gender = $_POST['gender'];
 $enrolled = $_POST['enrolled_in_college'];
 $gpa = $_POST['gpa'];
 $english_speaker = $_POST['english_speaker'];
-echo $english_speaker;
 $area_of_study = $_POST['area_of_study'];
 if ("other" == $area_of_study) $area_of_study = $_POST["area_of_study_other"];
 $ethnicity = $_POST['ethnicity'];
@@ -248,6 +247,8 @@ if (!mysqli_query($dbhandle,$sql)) {
 
 // Now retrieve current value and use it, depending on whether user is english speaker or not.
 $sql = "SELECT next_condition FROM next_conditions WHERE english_speaker = '$english_speaker'";
+echo $sql;
+echo '\n';
 $result = mysqli_query($dbhandle, $sql);
 if (!$result) {
 	die('Error: ' . mysqli_error($dbhandle));
