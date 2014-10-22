@@ -16,7 +16,7 @@ if (mysqli_connect_errno()) {
 //select a database to work with
 $sql = "CREATE TABLE IF NOT EXISTS survey
 (
-
+email_address VARCHAR(255) NOT NULL,
 age INT NOT NULL,
 gender ENUM('male', 'female', 'other') NOT NULL,
 is_enrolled ENUM('yes', 'no') NOT NULL,
@@ -46,6 +46,7 @@ if (mysqli_query($dbhandle, $sql)) {
 }
 
 // Collect data from form
+$email_address = $_POST['email_address'];
 $age = $_POST['age'];
 $gender = $_POST['gender'];
 $enrolled = $_POST['enrolled_in_college'];
@@ -75,105 +76,113 @@ $_SESSION = array();
 
 // Validate form data
 $error = false;
-if (empty($_POST["age"])) {
+if (empty($email_address)) {
+	$error = true;
+	$_SESSION['email_address_error'] = "*";
+} else if (!filter_var($email_address, FILTER_VALIDATE_EMAIL)) {
+	$error = true;	
+	$_SESSION['email_address_error'] = "Must be a valid email address.";
+}
+
+if (empty($age)) {
 	$error = true;
 	$_SESSION['age_error'] = "*";
-} else if (!is_numeric($_POST["age"])) {
+} else if (!is_numeric($age)) {
 	$error = true;	
 	$_SESSION['age_error'] = "Must be a number.";
 }
 
-if (empty($_POST["gender"])) {
+if (empty($gender)) {
 	$error = true;
 	$_SESSION['gender_error'] = "*";
 }
 
-if (empty($_POST["enrolled_in_college"])) {
+if (empty($enrolled_in_college)) {
 	$error = true;
 	$_SESSION['enrolled_in_college_error'] = "*";
 }
 
-if (!empty($_POST["gpa"]) && !is_numeric($_POST["gpa"])) {
+if (!empty($gpa) || !is_numeric($gpa)) {
 	$error = true;
 	$_SESSION['gpa_error'] = "Must be a number.";
 }
 
-if (empty($_POST["english_speaker"])) {
+if (empty($english_speaker)) {
 	$error = true;
 	$_SESSION['english_speaker_error'] = "*";
 }
 
-if (empty($_POST["area_of_study"]) || ("other" == ($_POST["area_of_study"]) && empty($_POST["area_of_study_other"]))) {
+if (empty($area_of_study)) {
 	$error = true;
 	$_SESSION['area_of_study_error'] = "*";
 } 
 
-if (empty($_POST["beliefs1"])) {
+if (empty($beliefs1)) {
 	$error = true;
 	$_SESSION['beliefs1_error'] = "*";
 }
 
-if (empty($_POST["beliefs2"])) {
+if (empty($beliefs2)) {
 	$error = true;
 	$_SESSION['beliefs2_error'] = "*";
 }
 
-if (empty($_POST["beliefs3"])) {
+if (empty($beliefs3)) {
 	$error = true;
 	$_SESSION['beliefs3_error'] = "*";
 }
 
-if (empty($_POST["beliefs4"])) {
+if (empty($beliefs4)) {
 	$error = true;
 	$_SESSION['beliefs4_error'] = "*";
 }
 
-if (empty($_POST["beliefs5"])) {
+if (empty($beliefs5)) {
 	$error = true;
 	$_SESSION['beliefs5_error'] = "*";
 }
 
-if (empty($_POST["beliefs6"])) {
+if (empty($beliefs6)) {
 	$error = true;
 	$_SESSION['beliefs6_error'] = "*";
 }
 
-if (empty($_POST["beliefs7"])) {
+if (empty($beliefs7)) {
 	$error = true;
 	$_SESSION['beliefs7_error'] = "*";
 }
 
-if (empty($_POST["beliefs8"])) {
+if (empty($beliefs8)) {
 	$error = true;
 	$_SESSION['beliefs8_error'] = "*";
 }
 
-if (empty($_POST["beliefs9"])) {
+if (empty($beliefs9)) {
 	$error = true;
 	$_SESSION['beliefs9_error'] = "*";
 }
 
-if (empty($_POST["beliefs10"])) {
+if (empty($beliefs10)) {
 	$error = true;
 	$_SESSION['beliefs10_error'] = "*";
 }
 
-if (empty($_POST["beliefs11"])) {
+if (empty($beliefs11)) {
 	$error = true;
 	$_SESSION['beliefs11_error'] = "*";
 }
 
-if (empty($_POST["beliefs12"])) {
+if (empty($beliefs12)) {
 	$error = true;
 	$_SESSION['beliefs12_error'] = "*";
 }
 
-if (empty($_POST["beliefs13"])) {
+if (empty($beliefs13)) {
 	$error = true;
 	$_SESSION['beliefs13_error'] = "*";
 }
 
-if (empty($_POST["beliefs14"])) {	
+if (empty($beliefs14)) {	
 	$error = true;
 	$_SESSION['beliefs14_error'] = "*";
 }
@@ -253,10 +262,8 @@ if (!$result) {
 	die('Error: ' . mysqli_error($dbhandle));
 }
 $row = $result->fetch_row();
-echo $row['0'];
-//echo size($row['0']);
-//echo $row['1'];
-//echo size($row['1']);
+$next_condition = $row['0'];
+
 
 $mysqli->close();
 

@@ -548,7 +548,19 @@ questions. Answer these questions honestly and thoughtfully. </p>
 	<td>7 <br/>Very true of me</td>
 </tr>
 </table>
-</ul><br/>
+</ul>
+<br/>
+<h2>Part 3</h2>
+<p>Please enter your email address. We will use this to communicate with you and send you
+the link to the website where you will submit your essay.</p>
+<div id="email_address">
+<span class="errorstar">*</span>
+<span class="server_error"><?php echo $email_address_error;?></span>
+<b>Email address:</b>&nbsp;
+<input type="text" name="email_address" size="40" maxlength="40" value="<?php echo $email_address ?>">
+<span class="errornote">Must be a valid email address.</span>
+</div>
+<br/>
 <p><b style="font-size: 110%">Honor Code:</b></p>
 <p>I agree to participate respectfully in this peer-assessment project,
 giving thoughtful and useful feedback to my peers in exchange for

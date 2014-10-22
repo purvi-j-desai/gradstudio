@@ -3,6 +3,7 @@ function validateForm() {
 	
 	var valid = true;
 	
+	var email_address = $("input:text[name=email_address]").val();
 	var gender = $("input:radio[name=gender]:checked").val();
 	var age = $("input:text[name=age]").val();
 	var enrolled_in_college = $("input:radio[name=enrolled_in_college]:checked").val();
@@ -28,6 +29,18 @@ function validateForm() {
 	$(".errorstar").css("display", "none");
 	$(".errornote").css("display", "none");
 	$("#errormsg").css("display", "none");
+	
+	if (!email_address) {
+		valid = false;
+		$("#email_address").find(".errorstar").css("display", "inline");
+	} else {
+		var atpos = email_address.indexOf("@");
+		var dotpos = email_address.lastIndexOf(".");
+		if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email_address.length) {
+			$("#email_address").find(".errorstar").css("display", "inline");
+			$("#email_address").find(".errornote").css("display", "inline");
+		}
+	} 
 	
 	if (!gender) {
 		valid = false;
