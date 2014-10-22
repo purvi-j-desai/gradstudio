@@ -279,13 +279,13 @@ if (!mysqli_query($dbhandle,$sql)) {
 }
 
 // Send email to user
-//ini_set("SMTP", "smtp.gmail.com");
-//ini_set("sendmail_from", "GradStudioProject@gmail.com");
+ini_set("SMTP", "smtp.gmail.com");
+ini_set("sendmail_from", "GradStudioProject@gmail.com");
 
 $message = "this is a test! your condition is $next_condition";
 $headers = "From: GradStudioProject@gmail.com";
 
-mail("ailie.fraser8@gmail.com", "test", $message);
+mail("ailie.fraser8@gmail.com", "test", $message, $headers);
 echo "sent email";
 
 //header('Location: /gradstudio/postsurvey.html');
