@@ -234,16 +234,19 @@ if (mysqli_query($dbhandle, $sql)) {
   echo "Error creating table: " . mysqli_error($dbhandle);
 }
 
-// Insert initial values into table if we just created it. Otherwise retrieve current values
+// Insert initial values into table only if we just created it. Otherwise retrieve current values
 // then update them.
-$sql = "INSERT INTO next_conditions (english_speaker, next_condition) VALUES ('yes', 'review')";
+$sql = "INSERT INTO next_conditions (english_speaker, next_condition) VALUES ('yes', 'review')
+ON DUPLICATE KEY UPDATE english_speaker=english_speaker";
 if (!mysqli_query($dbhandle,$sql)) {
  die('Error: ' . mysqli_error($dbhandle));
 }
-$sql = "INSERT INTO next_conditions (english_speaker, next_condition) VALUES ('no', 'outline')";
+$sql = "INSERT INTO next_conditions (english_speaker, next_condition) VALUES ('no', 'outline')
+ON DUPLICATE KEY UPDATE english_speaker=english_speaker";
 if (!mysqli_query($dbhandle,$sql)) {
  die('Error: ' . mysqli_error($dbhandle));
 }
+
 
 header('Location: /gradstudio/postsurvey.html');
 session_destroy();
