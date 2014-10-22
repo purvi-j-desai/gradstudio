@@ -40,7 +40,7 @@ beliefs14 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL
 )";
 
 if (mysqli_query($dbhandle, $sql)) {
-  echo "Tables created successfully!";
+  // echo "Tables created successfully!";
 } else {
   echo "Error creating table: " . mysqli_error($dbhandle);
 }
@@ -229,13 +229,12 @@ PRIMARY KEY (english_speaker)
 )";
 
 if (mysqli_query($dbhandle, $sql)) {
-  echo "Tables created successfully!";
+  // echo "Tables created successfully!";
 } else {
-  echo "Error creating table: " . mysqli_error($dbhandle);
+   echo "Error creating table: " . mysqli_error($dbhandle);
 }
 
-// Insert initial values into table only if we just created it. Otherwise retrieve current values
-// then update them.
+// Insert initial values into table only if we just created it.
 $sql = "INSERT INTO next_conditions (english_speaker, next_condition) VALUES ('yes', 'review')
 ON DUPLICATE KEY UPDATE english_speaker=english_speaker";
 if (!mysqli_query($dbhandle,$sql)) {
@@ -247,8 +246,17 @@ if (!mysqli_query($dbhandle,$sql)) {
  die('Error: ' . mysqli_error($dbhandle));
 }
 
+// Now retrieve current value and use it, depending on whether user is english speaker or not.
+$sql = "SELECT next_condition FROM next_conditions WHERE english_speaker = '$english_speaker'";
+$result = mysqli_query($dbhandle, $sql);
+if (!$result) {
+	die('Error: ' . mysqli_error($dbhandle));
+}
 
-header('Location: /gradstudio/postsurvey.html');
+echo $result;
+
+
+//header('Location: /gradstudio/postsurvey.html');
 session_destroy();
 
 ?>
