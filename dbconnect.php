@@ -266,6 +266,20 @@ if (!$result) {
 $row = $result->fetch_row();
 $next_condition = $row['0'];
 
+// update next_condition in table so next user will get sent to the other condition
+if ($next_condition == "review") {
+	$new_condition = "outline";
+} else { // next_condition == "outline" 
+	$new_condition = "review";
+}
+
+$sql = "UPDATE next_conditions SET next_condition='$new_condition' WHERE english_speaker = '$english_speaker'";
+if (!mysqli_query($dbhandle,$sql)) {
+ die('Error: ' . mysqli_error($dbhandle));
+}
+
+// Send email
+
 header('Location: /gradstudio/postsurvey.html');
 session_destroy();
 
