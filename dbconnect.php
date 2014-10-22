@@ -285,7 +285,7 @@ if (!mysqli_query($dbhandle,$sql)) {
 $message = "this is a test! your condition is $next_condition";
 $headers = "From: GradStudioProject@gmail.com";
 
-mail("ailie.fraser8@gmail.com", "test", $message, $headers);
+mail("ailie.fraser8@gmail.com", "test", $message);
 echo "sent email";
 
 //header('Location: /gradstudio/postsurvey.html');
