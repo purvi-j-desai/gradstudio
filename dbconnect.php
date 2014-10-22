@@ -247,14 +247,13 @@ if (!mysqli_query($dbhandle,$sql)) {
 
 // Now retrieve current value and use it, depending on whether user is english speaker or not.
 $sql = "SELECT next_condition FROM next_conditions WHERE english_speaker = '$english_speaker'";
-echo $sql;
-echo '\n';
+
 $result = mysqli_query($dbhandle, $sql);
 if (!$result) {
 	die('Error: ' . mysqli_error($dbhandle));
 }
-
-echo $result;
+$row = mysql_fetch_row($result);
+echo $row['next_condition'];
 
 
 //header('Location: /gradstudio/postsurvey.html');
