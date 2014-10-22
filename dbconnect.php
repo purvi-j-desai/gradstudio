@@ -280,9 +280,9 @@ if (!mysqli_query($dbhandle,$sql)) {
 
 // Send email to user
 require 'PHPMailerAutoload.php';
-
+echo '1';
 $mail = new PHPMailer;
-
+echo '2';
 $mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
@@ -304,7 +304,7 @@ $mail->AltBody = "Welcome to the Grad Studio Project! blah blah blah\n
 			you have been placed in the $next_condition style group. Whoops I wasn't supposed
 			to tell you that. oh well too bad. click the link below to go to peer studio\n
 			http://peerstudio.org ok bye.";
-
+echo '3';
 if (!$mail->send()) {
 	echo "did not send email";
 	echo 'mailer error: ' . $mail->ErrorInfo;
