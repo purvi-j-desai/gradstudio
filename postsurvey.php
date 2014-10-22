@@ -8,7 +8,7 @@ Email was sent successfully!
 <?php
 $email_address = $_SESSION['email_address'];
 $next_condition = $_SESSION['next_condition'];
-
+echo $email_address;
 // Send email to user
 require 'phpmailer/PHPMailerAutoload.php';
 
@@ -23,7 +23,7 @@ $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
 $mail->From = 'GradStudioProject@gmail.com';
 $mail->FromName = "Grad Studio";
-$mail->addAddress("$email_address");
+$mail->addAddress($email_address);
 $mail->WordWrap = 50;
 $mail->isHTML(true);
 
