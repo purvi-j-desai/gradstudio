@@ -237,6 +237,9 @@ if (mysqli_query($dbhandle, $sql)) {
 // Insert initial values into table if we just created it. Otherwise retrieve current values
 // then update them.
 $sql = "INSERT INTO next_conditions (english_speaker, next_condition) VALUES ('yes', 'review')";
+if (!mysqli_query($dbhandle,$sql)) {
+ die('Error: ' . mysqli_error($dbhandle));
+}
 $sql = "INSERT INTO next_conditions (english_speaker, next_condition) VALUES ('no', 'outline')";
 if (!mysqli_query($dbhandle,$sql)) {
  die('Error: ' . mysqli_error($dbhandle));
