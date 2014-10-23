@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			send_email($email_address, $condition, true);
 		} else {
 			echo "<span style='color: red;'>Your email is not in our database. Please go to our 
-			<a href='http://d.ucsd.edu/gradstudio'>homepage</a>and click 'get started' to 
+			<a href='http://d.ucsd.edu/gradstudio'>homepage</a> and click 'get started' to 
 			complete the survey.</span>";
 		}
 	}
