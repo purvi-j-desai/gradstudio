@@ -39,6 +39,7 @@ beliefs10 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 beliefs12 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 beliefs13 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 beliefs14 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL
+PRIMARY KEY (email_address)
 )";
 
 if (mysqli_query($dbhandle, $sql)) {
@@ -223,10 +224,20 @@ if ($error) {
 	header('Location: /gradstudio/questionnaire.php');
 	exit(1);
 }
+
+// check if the user already exists in the database
+$sql = "SELECT email_address FROM survey WHERE email_address = '$email_address'";
+$result = mysqli_query($dbhandle, $sql);
+if (!$result) {
+	die('Error: ' . mysqli_error($dbhandle));
+}
+if (mysqli_num_rows($result) > 0) {
+	// user already exists
+	header('Location: /gradstudio/user_exists.html');
+	exit(1);
+}
+
 // If we make it to here, there are no errors
-
-
-
 
 // Table that stores which condition to send the next english speaker and next non-english
 // speaker to.
