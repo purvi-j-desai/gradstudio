@@ -552,8 +552,9 @@ questions. Answer these questions honestly and thoughtfully. </p>
 </ul>
 <br/>
 <h2>Part 3</h2>
-<p>Please enter your email address. We will use this to communicate with you and send you
-the link to the website where you will submit your essay.</p>
+<p>Please enter your email. You must use the same email to sign up for your PeerStudio account. This
+email will only be used to contact you about your paper and match your responses to your essay in
+the PeerStudio system; we will never use your email for any other purpose. </p>
 <div id="email_address">
 <span class="errorstar">*</span>
 <span class="server_error"><?php echo $email_address_error;?></span>

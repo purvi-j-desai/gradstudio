@@ -89,13 +89,19 @@ html {
 </header>
 
 <p>Thanks for completing the survey! You are now registered for the GradStudio Project.</p>
+<p>We just sent you an email containing your unique link to sign up on PeerStudio, which
+is where you will upload your essay, give and get feedback, and re-submit
+your essay with revisions. If you do not see the email in your inbox, please add 
+<a href="mailto:GradStudioProject@gmail.com">GradStudioProject@gmail.com</a> to your list
+of known senders, and click the button at the bottom of this page to re-send the email.</p>
 
 <p><b>Next Steps:</b></p>
 <p>(You can return to these instructions at any time by visiting our <a href="http://d.ucsd.edu/gradstudio">main page</a> and clicking
 the <a href="instructions.html">"Instructions"</a> button on the top.)
 <ol style="margin-left: 2%;" >
   <li>Complete! <span id="completed_step">Fill out the survey by clicking "get started" on the front page of <u>The GradStudio Project</u></span></li>
-  <li><b>Click "Submit My Essay" at the bottom of this page</b> to be taken to your assignment in PeerStudio.
+  <li>Click on the link in the email we sent you to be taken to your assignment in PeerStudio
+  (click re-send email below if you have lost the link).
   When you get there, click "Create/Edit Your Draft". The first time you do this you will 
   need to create a PeerStudio account:
   <ol style="list-style:lower-alpha outside none;">
@@ -120,7 +126,7 @@ the <a href="instructions.html">"Instructions"</a> button on the top.)
 <a href="mailto:GradStudioProject@gmail.com">GradStudioProject@gmail.com</a>.
 
 <div style="text-align: center">
-<a href="http://peerstudio.org" class="button button-alt2" style="font-size:120% !important;">Submit My Essay</a>
+<a href="resend_email.php" class="button button-alt2" style="font-size:120% !important;">Re-send Email</a>
 </div>
 </article>
 </div>

@@ -27,7 +27,7 @@ function send_email($email_address, $next_condition) {
 		$link = "https://www.peerstudio.org/assignments/39";
 	}
 	
-	$mail->Body = "<p>Welcome to the GradStudio Project! </p>
+	$text = "<p>Welcome to the GradStudio Project! </p>
 			<p>We’re excited to have you join.  You will be using PeerStudio to submit and 
 			review essays. </p>
 			<p><b>Here is your unique link to sign up on PeerStudio: </b><br/>
@@ -52,7 +52,9 @@ function send_email($email_address, $next_condition) {
 			<p>PS. If you ever lose this link, you can ask for it again on the 
 			<a href='http://d.ucsd.edu/gradstudio/instructions.html'>Instructions 
 			page</a>.</p>";
-	$mail->AltBody = "";
+	
+	$mail->Body = $text;
+	$mail->AltBody = strip_tags($text);
 
 	if (!$mail->send()) {
 		echo 'Problem sending email: ' . $mail->ErrorInfo;
