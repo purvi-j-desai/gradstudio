@@ -280,9 +280,6 @@ if (!mysqli_query($dbhandle,$sql)) {
  die('Error: ' . mysqli_error($dbhandle));
 }
 
-$email_address = "ailie.fraser8@gmail.com";
-$next_condition = "outline";
-
-header("Location: /gradstudio/postsurvey.php");
+header("Location: /gradstudio/postsurvey.html");
 
 ?>

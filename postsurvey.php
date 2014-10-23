@@ -43,11 +43,3 @@ session_destroy();
 ?>
 
 
-
-<html>
-<head></head>
-<body>
-Email was sent successfully!
-</body>
-</html>
-
