@@ -1,14 +1,3 @@
-<?php
-include 'generate_email.php';
-session_start();
-$email_address = $_SESSION['email_address'];
-$next_condition = $_SESSION['next_condition'];
-send_email($email_address, $next_condition);
-
-//header('Location: /gradstudio/postsurvey.html');
-session_destroy();
-?>
-
 <!DOCTYPE HTML>
 <!--
 	MegaCorp by TEMPLATED
@@ -27,7 +16,6 @@ session_destroy();
 <script src="js/skel.min.js"></script>
 <!--<script src="js/skel-panels.min.js"></script>-->
 <script src="js/init.js"></script>
-<script src="js/form_validation.js"></script>
 <noscript>
 	<link rel="stylesheet" href="css/skel-noscript.css" />
 	<link rel="stylesheet" href="css/style.css" />
@@ -38,24 +26,6 @@ session_destroy();
 html {
 	height: 100%;
 }
-</style>
-
-
-<style>
-.errornote, #errormsg, .errorstar { 
-	color: red;
-	display: none;
-}
-
-.server_error {
-	color: red;
-}
-
-#survey_header.sticky {
-     position: fixed;
-     top: 0;
-}
-
 </style>
 
 </head>
@@ -94,6 +64,17 @@ is where you will upload your essay, give and get feedback, and re-submit
 your essay with revisions. If you do not see the email in your inbox, please add 
 <a href="mailto:GradStudioProject@gmail.com">GradStudioProject@gmail.com</a> to your list
 of known senders, and click the button at the bottom of this page to re-send the email.</p>
+<p style="color: red;">
+<?php
+include 'send_email.php';
+session_start();
+$email_address = $_SESSION['email_address'];
+$next_condition = $_SESSION['next_condition'];
+send_email($email_address, $next_condition);
+
+session_destroy();
+?>
+</p>
 
 <p><b>Next Steps:</b></p>
 <p>(You can return to these instructions at any time by visiting our <a href="http://d.ucsd.edu/gradstudio">main page</a> and clicking

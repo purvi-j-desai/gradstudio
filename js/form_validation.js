@@ -39,6 +39,7 @@ function validateForm() {
 		if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email_address.length) {
 			$("#email_address").find(".errorstar").css("display", "inline");
 			$("#email_address").find(".errornote").css("display", "inline");
+			valid = false;
 		}
 	} 
 	

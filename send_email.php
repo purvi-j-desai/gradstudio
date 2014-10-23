@@ -1,5 +1,5 @@
 <?php
-function send_email($email_address, $next_condition) {
+function send_email($email_address, $next_condition, $show_confirm=false) {
 
 	// Send email to user
 	require 'phpmailer/PHPMailerAutoload.php';
@@ -58,6 +58,8 @@ function send_email($email_address, $next_condition) {
 
 	if (!$mail->send()) {
 		echo 'Problem sending email: ' . $mail->ErrorInfo;
+	} else if ($show_confirm) {
+		echo "Email successfully sent!";
 	}
 }
 
