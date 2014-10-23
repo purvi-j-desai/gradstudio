@@ -38,7 +38,7 @@ beliefs9 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 beliefs10 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 beliefs12 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 beliefs13 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
-beliefs14 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL
+beliefs14 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 PRIMARY KEY (email_address)
 )";
 
