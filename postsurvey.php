@@ -1,3 +1,10 @@
+<html>
+<head</head>
+<body>
+we are sending you an email
+</body>
+</html>
+
 <?php
 session_start();
 $email_address = $_SESSION['email_address'];
@@ -41,5 +48,4 @@ if (!$mail->send()) {
 //header('Location: /gradstudio/postsurvey.html');
 session_destroy();
 ?>
-
 

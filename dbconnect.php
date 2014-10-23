@@ -190,9 +190,12 @@ if (empty($beliefs14)) {
 
 $_SESSION['error'] = $error;
 
+// Save email address
+$_SESSION['email_address'] = $email_address;
+
 if ($error) {
 	// Save data so the form will still be filled out
-	$_SESSION['email_address'] = $email_address;
+	
 	$_SESSION['age'] = $age;
 	$_SESSION['gender'] = $gender;
 	$_SESSION['enrolled_in_college'] = $enrolled;
@@ -280,6 +283,6 @@ if (!mysqli_query($dbhandle,$sql)) {
  die('Error: ' . mysqli_error($dbhandle));
 }
 
-header("Location: /gradstudio/postsurvey.html");
+header("Location: /gradstudio/postsurvey.php");
 
 ?>
