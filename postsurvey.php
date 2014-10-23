@@ -3,7 +3,7 @@ include 'generate_email.php';
 session_start();
 $email_address = $_SESSION['email_address'];
 $next_condition = $_SESSION['next_condition'];
-send_email();
+send_email($email_address, $next_condition);
 
 //header('Location: /gradstudio/postsurvey.html');
 session_destroy();
