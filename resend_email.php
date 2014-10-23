@@ -96,7 +96,7 @@ function validateForm() {
 <header>
 	<h2 class="main-title">Re-send Email</h2>
 </header>
-<p>
+<p style="color: green;">
 <?php
 include 'get_condition.php';
 include 'send_email.php';
@@ -114,7 +114,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 	if (!$error) {
 		$condition = get_condition($email_address);
-		send_email($email_address, $condition, true);
+		if ($condition) {
+			send_email($email_address, $condition, true);
+		} else {
+			echo "Your email is not in our database. Please go to our 
+			<a href='http://d.ucsd.edu/gradstudio'>and click 'get started' to complete
+			the survey.";
+		}
 	}
 }
 ?>

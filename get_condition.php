@@ -14,11 +14,12 @@ function get_condition($email_address) {
 	$sql = "SELECT feedback_condition FROM survey WHERE email_address = '$email_address'";
 	$result = mysqli_query($dbhandle, $sql);
 	if (!$result) {
-		die('Error: ' . mysqli_error($dbhandle));
+		return false;
+	} else {
+		$row = $result->fetch_row();
+		$feedback_condition = $row['0'];
+		return $feedback_condition;
 	}
-	$row = $result->fetch_row();
-	$feedback_condition = $row['0'];
-	return $feedback_condition;
 }
 
 
