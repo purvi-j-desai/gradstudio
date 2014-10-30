@@ -28,9 +28,13 @@ function send_email($email_address, $next_condition, $show_confirm=false) {
 	}
 	
 	$text = "<p>Welcome to the GradStudio Project! </p>
-			<p>We're excited to have you join.  You will be using PeerStudio to submit and 
-			review essays. </p>
-			<p><b>Here is your unique link to sign up on PeerStudio: </b><br/>
+			<p>You're on your way to getting  helpful feedback on your application essays!</p>
+			<p>There are two stages in the project. The first stage gives you a 'quick check' 
+			on your essay, and the second stage of feedback after you've already made revisions 
+			will give you in-depth comments. Be sure to complete both rounds in order to get 
+			the most help from the project!</p>
+			<p>You will be using Peerstudio to submit and review essays.</p>
+			<p><b>Here is your unique link to sign up on Peerstudio: </b><br/>
 			<a href=$link>$link</a></p>
 			<p>You will need to follow this link to upload your essay, get feedback, give 
 			feedback to other participants, and re-submit your essay with revisions. </p>
@@ -39,12 +43,12 @@ function send_email($email_address, $next_condition, $show_confirm=false) {
 			<ol><li>Click <b>'I have a password'</b> underneath the '1-click sign-in' buttons 
 			that appear.</li>
 			<li>Click 'Sign Up' at the bottom of the form that appears.</li>
-			<li>Fill in the form to create your PeerStudio account. Remember your password, 
-			as you will need it to log back in to PeerStudio in the future.</li></ol>
+			<li>Fill in the form to create your Peerstudio account. Remember your password, 
+			as you will need it to log back in to Peerstudio in the future.</li></ol>
 			<p>Once you complete this, you will be logged in and taken to the assignment 
 			page. There, you will be able to upload your essay for peer review.</p>
 			<p>Because the GradStudio Project is not an online course, your assignment will 
-			not be visible on the “Course” homepage for PeerStudio if you login to PeerStudio 
+			not be visible on the “Course” homepage for Peerstudio if you login to Peerstudio 
 			directly. It is important that you <b>follow your unique assignment link, 
 			above.</b> </p>
 			<p>Happy Writing! </p>
