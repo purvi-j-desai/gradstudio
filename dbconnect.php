@@ -17,6 +17,7 @@ if (mysqli_connect_errno()) {
 //select a database to work with
 $sql = "CREATE TABLE IF NOT EXISTS survey
 (
+user_id INT NOT NULL AUTO_INCREMENT
 email_address VARCHAR(255) NOT NULL,
 feedback_condition ENUM('review', 'outline') NOT NULL,
 is_enrolled ENUM('yes', 'no') NOT NULL,
@@ -47,7 +48,7 @@ end_survey5 ENUM('1', '2', '3', '4', '5') DEFAULT NULL,
 end_survey6 ENUM('1', '2', '3', '4', '5') DEFAULT NULL, 
 end_survey7 ENUM('1', '2', '3', '4', '5') DEFAULT NULL, 
 additional_comments VARCHAR(750) DEFAULT NULL,
-PRIMARY KEY (email_address)
+PRIMARY KEY (user_id)
 )";
 
 if (mysqli_query($dbhandle, $sql)) {
