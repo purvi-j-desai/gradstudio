@@ -39,7 +39,7 @@ function send_email($email_address, $next_condition, $show_confirm=false) {
 			<p>You will need to follow this link to upload your essay, get feedback, give 
 			feedback to other participants, and re-submit your essay with revisions. </p>
 			<p>When you get there, click <b>'Create/Edit Your Draft'</b>. The first time you do 
-			this you will need to create a PeerStudio account:</p>
+			this you will need to create a Peerstudio account:</p>
 			<ol><li>Click <b>'I have a password'</b> underneath the '1-click sign-in' buttons 
 			that appear.</li>
 			<li>Click 'Sign Up' at the bottom of the form that appears.</li>

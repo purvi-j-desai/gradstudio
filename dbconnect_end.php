@@ -122,19 +122,6 @@ if ($error) {
 	exit(1);
 }
 
-// get their email address and save it for sending the final thank you email
-// Now retrieve current value and use it, depending on whether user is english speaker or not.
-$sql = "SELECT email_address FROM survey WHERE user_id = '$user_id'";
-
-$result = mysqli_query($dbhandle, $sql);
-if (!$result) {
-	die('Error: ' . mysqli_error($dbhandle));
-}
-$row = $result->fetch_row();
-$email_address = $row['0'];
-$_SESSION['email_address'] = $email_address;
-
-
 // If we make it to here, there are no errors and the user is in the database
 
 // Save all new data in the survey table

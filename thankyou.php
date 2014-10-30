@@ -58,17 +58,7 @@ html {
 	<h2 class="main-title">Thank you!</h2>
 </header>
 
-<p>You have now completed the Grad Studio Project!
-You should receive a confirmation email from us shortly.</p>
-<p style="color: red;">
-<?php
-include 'send_thankyou_email.php';
-session_start();
-$email_address = $_SESSION['email_address'];
-send_thankyou_email($email_address);
-
-session_destroy();
-?>
+<p>You have now completed the Grad Studio Project! Good luck with your applications!
 </p>
 
 </article>
