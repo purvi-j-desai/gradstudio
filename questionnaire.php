@@ -77,8 +77,6 @@ session_start();
 $error = $_SESSION['error'];
 
 $email_address_error = $_SESSION['email_address_error'];
-$age_error = $_SESSION['age_error'];
-$gender_error = $_SESSION['gender_error'];
 $enrolled_in_college_error = $_SESSION['enrolled_in_college_error'];
 $gpa_error = $_SESSION['gpa_error'];
 $english_speaker_error = $_SESSION['english_speaker_error'];
@@ -99,13 +97,10 @@ $beliefs13_error = $_SESSION['beliefs13_error'];
 $beliefs14_error = $_SESSION['beliefs14_error'];
 
 $email_address = $_SESSION['email_address'];
-$age = $_SESSION['age'];
-$gender = $_SESSION['gender'];
 $enrolled_in_college = $_SESSION['enrolled_in_college'];
 $gpa = $_SESSION['gpa'];
 $english_speaker = $_SESSION['english_speaker'];
 $area_of_study = $_SESSION['area_of_study'];
-$ethnicity = $_SESSION['ethnicity'];
 $beliefs1 = $_SESSION['beliefs1'];
 $beliefs2 = $_SESSION['beliefs2'];
 $beliefs3 = $_SESSION['beliefs3'];
@@ -159,23 +154,6 @@ project.</p><br/>
 <form action="dbconnect.php" method="post" onsubmit="return validateForm()">
 <!-- <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validateForm()">-->
 <ul>
-	<li id="age">
-		<span class="errorstar">*</span><span class="errornote">Must be a number.</span>
-		<span class="server_error"><?php echo $age_error;?></span>
-		<b>Age:</b>&nbsp;<input type="text" name="age" size="4" maxlength="3" value="<?php echo $age ?>">
-	</li>
-	<li id="gender">
-		<span class="errorstar">*</span><span class="server_error"><?php echo $gender_error;?></span>
-		<b>Gender: </b><input type="radio" name="gender" 
-			<?php if (isset($gender) && $gender=="male") echo "checked";?>
-			value="male">Male</input>&nbsp;&nbsp;&nbsp;
-		<input type="radio" name="gender" 
-			<?php if (isset($gender) && $gender=="female") echo "checked";?> 
-			value="female">Female</input>&nbsp;&nbsp;&nbsp;
-		<input type="radio" name="gender" 
-		<?php if (isset($gender) && $gender=="other") echo "checked";?>
-		value="other">Other</input>
-	</li>
 	<li id="enrolled_in_college">
 		<span class="errorstar">*</span><span class="server_error"><?php echo $enrolled_in_college_error;?></span>
 		<b>I am enrolled in College: </b><input type="radio" name="enrolled_in_college" 
@@ -223,29 +201,6 @@ project.</p><br/>
 		<input type="text" name="area_of_study_other" size="30" maxlength="30"
 		value="<?php if (isset($area_of_study) && $area_of_study!="arts_humanities" && $area_of_study!="science"
 		&& $area_of_study!="social_science" && $area_of_study!="law" && $area_of_study!="medicine") echo $area_of_study;?>"
-		></input><br/>
-	</li>
-	<li id="ethnicity">
-		<b>Ethnicity</b> (optional):<br/>
-		<input type="radio" name="ethnicity" 
-		<?php if (isset($ethnicity) && $ethnicity=="african_american") echo "checked";?>
-		value="african_american">African American</input><br/>
-		<input type="radio" name="ethnicity" 
-		<?php if (isset($ethnicity) && $ethnicity=="asian") echo "checked";?>
-		value="asian">Asian</input><br/>
-		<input type="radio" name="ethnicity" 
-		<?php if (isset($ethnicity) && $ethnicity=="caucasian") echo "checked";?>
-		value="caucasian">Caucasian</input><br/>
-		<input type="radio" name="ethnicity" 
-		<?php if (isset($ethnicity) && $ethnicity=="latino") echo "checked";?>
-		value="latino">Latino</input><br/>
-		<input type="radio" name="ethnicity" 
-		<?php if (isset($ethnicity) && $ethnicity!="african_american" && $ethnicity!="asian"
-		&& $ethnicity!="caucasian" && $ethnicity!="latino") echo "checked";?>
-		value="other">Other: </input>
-		<input type="text" name="ethnicity_other" size="30" maxlength="30"
-		value="<?php if (isset($ethnicity) && $ethnicity!="african_american" && $ethnicity!="asian"
-		&& $ethnicity!="caucasian" && $ethnicity!="latino") echo $ethnicity;?>"
 		></input><br/>
 	</li>
 </ul>	

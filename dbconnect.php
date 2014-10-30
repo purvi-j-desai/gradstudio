@@ -19,13 +19,10 @@ $sql = "CREATE TABLE IF NOT EXISTS survey
 (
 email_address VARCHAR(255) NOT NULL,
 feedback_condition ENUM('review', 'outline') NOT NULL,
-age INT NOT NULL,
-gender ENUM('male', 'female', 'other') NOT NULL,
 is_enrolled ENUM('yes', 'no') NOT NULL,
 gpa FLOAT DEFAULT -1,
 is_native_eng ENUM('yes', 'no') NOT NULL,
 app_area VARCHAR(255) NOT NULL,
-ethnicity VARCHAR(255),
 beliefs1 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL, 
 beliefs2 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 beliefs3 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
@@ -39,6 +36,9 @@ beliefs10 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 beliefs12 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 beliefs13 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 beliefs14 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
+age INT NOT NULL,
+gender ENUM('male', 'female', 'other') NOT NULL,
+ethnicity VARCHAR(255),
 PRIMARY KEY (email_address)
 )";
 
@@ -50,15 +50,11 @@ if (mysqli_query($dbhandle, $sql)) {
 
 // Collect data from form
 $email_address = $_POST['email_address'];
-$age = $_POST['age'];
-$gender = $_POST['gender'];
 $enrolled = $_POST['enrolled_in_college'];
 $gpa = $_POST['gpa'];
 $english_speaker = $_POST['english_speaker'];
 $area_of_study = $_POST['area_of_study'];
 if ("other" == $area_of_study) $area_of_study = $_POST["area_of_study_other"];
-$ethnicity = $_POST['ethnicity'];
-if ("other" == $ethnicity) $ethnicity = $_POST["ethnicity_other"];
 $beliefs1 =$_POST['beliefs1'];
 $beliefs2 =$_POST['beliefs2'];
 $beliefs3 =$_POST['beliefs3'];
@@ -85,19 +81,6 @@ if (empty($email_address)) {
 } else if (!filter_var($email_address, FILTER_VALIDATE_EMAIL)) {
 	$error = true;	
 	$_SESSION['email_address_error'] = "Must be a valid email address.";
-}
-
-if (empty($age)) {
-	$error = true;
-	$_SESSION['age_error'] = "*";
-} else if (!is_numeric($age)) {
-	$error = true;	
-	$_SESSION['age_error'] = "Must be a number.";
-}
-
-if (empty($gender)) {
-	$error = true;
-	$_SESSION['gender_error'] = "*";
 }
 
 if (empty($enrolled)) {
@@ -198,13 +181,10 @@ $_SESSION['email_address'] = $email_address;
 if ($error) {
 	// Save data so the form will still be filled out
 	
-	$_SESSION['age'] = $age;
-	$_SESSION['gender'] = $gender;
 	$_SESSION['enrolled_in_college'] = $enrolled;
 	$_SESSION['gpa'] = $gpa;
 	$_SESSION['english_speaker'] = $english_speaker;
 	$_SESSION['area_of_study'] = $area_of_study;
-	$_SESSION['ethnicity'] = $ethnicity;
 	$_SESSION['beliefs1'] = $beliefs1;
 	$_SESSION['beliefs2'] = $beliefs2;
 	$_SESSION['beliefs3'] = $beliefs3;
@@ -279,8 +259,8 @@ $_SESSION['next_condition'] = $next_condition;
 
 
 // Save all user data in the survey table
-$sql = "INSERT INTO survey (email_address, feedback_condition, age, gender, is_enrolled, gpa, is_native_eng, app_area, ethnicity, beliefs1, beliefs2, beliefs3, beliefs4, beliefs5, beliefs6, beliefs7, beliefs8, beliefs9, beliefs10, beliefs12, beliefs13, beliefs14)
-VALUES ('$email_address', '$next_condition', '$age', '$gender', '$enrolled', '$gpa', '$english_speaker', '$area_of_study', '$ethnicity', '$beliefs1', '$beliefs2', '$beliefs3', '$beliefs4', '$beliefs5', '$beliefs6', '$beliefs7', '$beliefs8', '$beliefs9', '$beliefs10', '$beliefs12', '$beliefs13', '$beliefs14')
+$sql = "INSERT INTO survey (email_address, feedback_condition, is_enrolled, gpa, is_native_eng, app_area, beliefs1, beliefs2, beliefs3, beliefs4, beliefs5, beliefs6, beliefs7, beliefs8, beliefs9, beliefs10, beliefs12, beliefs13, beliefs14)
+VALUES ('$email_address', '$next_condition', '$enrolled', '$gpa', '$english_speaker', '$area_of_study', '$beliefs1', '$beliefs2', '$beliefs3', '$beliefs4', '$beliefs5', '$beliefs6', '$beliefs7', '$beliefs8', '$beliefs9', '$beliefs10', '$beliefs12', '$beliefs13', '$beliefs14')
 ";
 
 if (!mysqli_query($dbhandle,$sql)) {
