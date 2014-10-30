@@ -865,11 +865,11 @@ a:hover
 	#banner
 	{
 		overflow: hidden;
-		padding: 3em 0em;
+		padding: 3em 0em 2em;
 		text-align: center;
 		z-index: 1;
 		position: absolute;
-		bottom: 50px;
+		bottom: 5px;
 		width: 100%;
 	}
 
@@ -880,6 +880,19 @@ a:hover
 		color: #000000;
 		font-family: "Overlock SC", serif;
 		text-align: center;
+	}
+	
+	#banner header h3
+	{
+		/*text-transform: uppercase;*/
+		font-size: 3.5em;
+		color: #000000;
+		font-family: "Overlock SC", serif;
+		text-align: center;
+	}
+	
+	#main_title {
+		line-height: 4.5em;
 	}
 
 	#banner header .byline
