@@ -1,5 +1,5 @@
 <?php
-function send_email($email_address) {
+function send_thankyou_email($email_address) {
 
 	// Send email to user
 	require 'phpmailer/PHPMailerAutoload.php';
@@ -30,8 +30,6 @@ function send_email($email_address) {
 
 	if (!$mail->send()) {
 		echo 'Problem sending email: ' . $mail->ErrorInfo;
-	} else if ($show_confirm) {
-		echo "Email successfully sent!";
 	}
 }
 
