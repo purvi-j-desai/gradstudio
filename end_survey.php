@@ -67,7 +67,6 @@ $end_survey3_error = $_SESSION['end_survey3_error'];
 $end_survey4_error = $_SESSION['end_survey4_error'];
 $end_survey5_error = $_SESSION['end_survey5_error'];
 $end_survey6_error = $_SESSION['end_survey6_error'];
-$end_survey7_error = $_SESSION['end_survey7_error'];
 
 
 $age = $_SESSION['age'];
@@ -79,9 +78,8 @@ $end_survey3 = $_SESSION['end_survey3'];
 $end_survey4 = $_SESSION['end_survey4'];
 $end_survey5 = $_SESSION['end_survey5'];
 $end_survey6 = $_SESSION['end_survey6'];
-$end_survey7 = $_SESSION['end_survey7'];
 $additional_comments = $_SESSION['additional_comments'];
-
+$followup = $_SESSION['followup'];
 ?>
 
 <!-- Header -->
@@ -112,7 +110,9 @@ $additional_comments = $_SESSION['additional_comments'];
 <header>
 	<h2 class="main-title">End Survey</h2>
 </header>
-<p>To complete the GradStudio Project, please fill out this end survey.</p><br/>
+<p>As a thank-you for your participation, we will be inviting a randomly-selected group of 
+people who complete this End Survey to submit an essay for free, in-depth editing help and 
+feedback from our team of experienced PhD researchers!</p><br/>
 <div id="errormsg" style="<?php if ($error) echo 'display: block !important'; ?>">Please answer all required questions.</div>
 <h2>Part 1</h2>
 <form action="dbconnect_end.php" method="post" onsubmit="return validateForm()">
@@ -178,7 +178,7 @@ thoughtfully. Thank you!  </p>
 <tr>
 	<td class="td_column1"><li id="end_survey1">
 	<span class="errorstar">*</span><span class="server_error"><?php echo $end_survey1_error;?></span> 
-	The peer reviews were helpful</li></td>
+	The peer reviewers gave me helpful, relevant comments</li></td>
 	<td><input type="radio" name="end_survey1" value="1"
 	<?php if (isset($end_survey1) && $end_survey1=="1") echo "checked";?>></input></td>
 	<td><input type="radio" name="end_survey1" value="2"
@@ -193,7 +193,7 @@ thoughtfully. Thank you!  </p>
 <tr>
 	<td class="td_column1"><li id="end_survey2">
 	<span class="errorstar">*</span><span class="server_error"><?php echo $end_survey2_error;?></span> 
-	The peer reviewers accurately evaluated my essay</li></td>
+	My essay changed for the better because of the comments I got from reviewers</li></td>
 	<td><input type="radio" name="end_survey2" value="1"
 	<?php if (isset($end_survey2) && $end_survey2=="1") echo "checked";?>></input></td>
 	<td><input type="radio" name="end_survey2" value="2"
@@ -208,7 +208,7 @@ thoughtfully. Thank you!  </p>
 <tr>
 	<td class="td_column1"><li id="end_survey3">
 	<span class="errorstar">*</span><span class="server_error"><?php echo $end_survey3_error;?></span> 
-	Peer reviewers gave me irrelevant or off-topic comments</li></td>
+	I gave helpful, relevant comments to the essays I reviewed</li></td>
 	<td><input type="radio" name="end_survey3" value="1"
 	<?php if (isset($end_survey3) && $end_survey3=="1") echo "checked";?>></input></td>
 	<td><input type="radio" name="end_survey3" value="2"
@@ -223,7 +223,7 @@ thoughtfully. Thank you!  </p>
 <tr>
 	<td class="td_column1"><li id="end_survey4">
 	<span class="errorstar">*</span><span class="server_error"><?php echo $end_survey4_error;?></span> 
-	My essay changed for the better because of the comments I got from reviewers</li></td>
+	I enjoyed my experience in this project </li></td>
 	<td><input type="radio" name="end_survey4" value="1"
 	<?php if (isset($end_survey4) && $end_survey4=="1") echo "checked";?>></input></td>
 	<td><input type="radio" name="end_survey4" value="2"
@@ -238,7 +238,8 @@ thoughtfully. Thank you!  </p>
 <tr>
 	<td class="td_column1"><li id="end_survey5">
 	<span class="errorstar">*</span><span class="server_error"><?php echo $end_survey5_error;?></span> 
-	I gave helpful comments to others in this project</li></td>
+	If I had a choice between anonymous reviewers and reviewers that I know (e.g. Facebook 
+	friends, LinkedIn connections), I would choose reviewers that I know.</li></td>
 	<td><input type="radio" name="end_survey5" value="1"
 	<?php if (isset($end_survey5) && $end_survey5=="1") echo "checked";?>></input></td>
 	<td><input type="radio" name="end_survey5" value="2"
@@ -253,7 +254,7 @@ thoughtfully. Thank you!  </p>
 <tr>
 	<td class="td_column1"><li id="end_survey6">
 	<span class="errorstar">*</span><span class="server_error"><?php echo $end_survey6_error;?></span> 
-	I enjoyed my experience in this project</li></td>
+	I feel confident that I am a strong candidate for graduate school</li></td>
 	<td><input type="radio" name="end_survey6" value="1"
 	<?php if (isset($end_survey6) && $end_survey6=="1") echo "checked";?>></input></td>
 	<td><input type="radio" name="end_survey6" value="2"
@@ -265,22 +266,6 @@ thoughtfully. Thank you!  </p>
 	<td><input type="radio" name="end_survey6" value="5"
 	<?php if (isset($end_survey6) && $end_survey6=="5") echo "checked";?>></input></td>
 </tr>
-<tr>
-	<td class="td_column1"><li id="end_survey7">
-	<span class="errorstar">*</span><span class="server_error"><?php echo $end_survey7_error;?></span> 
-	If I had a choice between anonymous reviewers and reviewers that I know (e.g. Facebook 
-	friends, LinkedIn connections), I would choose reviewers that I know.</li></td>
-	<td><input type="radio" name="end_survey7" value="1"
-	<?php if (isset($end_survey7) && $end_survey7=="1") echo "checked";?>></input></td>
-	<td><input type="radio" name="end_survey7" value="2"
-	<?php if (isset($end_survey7) && $end_survey7=="2") echo "checked";?>></input></td>
-	<td><input type="radio" name="end_survey7" value="3"
-	<?php if (isset($end_survey7) && $end_survey7=="3") echo "checked";?>></input></td>
-	<td><input type="radio" name="end_survey7" value="4"
-	<?php if (isset($end_survey7) && $end_survey7=="4") echo "checked";?>></input></td>
-	<td><input type="radio" name="end_survey7" value="5"
-	<?php if (isset($end_survey7) && $end_survey7=="5") echo "checked";?>></input></td>
-</tr>
 </table>
 </ul><br/>
 <p id="additional_comments">
@@ -288,6 +273,12 @@ thoughtfully. Thank you!  </p>
 	<textarea name="additional_comments" rows="8" cols="60" maxlength="750"><?php echo $additional_comments ?></textarea>
 </p>
 
+<p id="followup">
+To learn more about how to help people in their applications for future projects, we’d like 
+to followup with you and learn what graduate programs you’ve been accepted into. Check here 
+to help our future research!
+<input type="checkbox" name="followup" value="yes" <?php if (isset($followup) && $followup=="yes") echo "checked";?>></input>
+</p>
 <br/>
 <input type="hidden" name="user_id" value="<?php echo $user_id ?>" />
 <button class="button button-alt2" type="submit">Submit</button>

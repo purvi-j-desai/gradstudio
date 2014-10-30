@@ -46,8 +46,8 @@ end_survey3 ENUM('1', '2', '3', '4', '5') DEFAULT NULL,
 end_survey4 ENUM('1', '2', '3', '4', '5') DEFAULT NULL, 
 end_survey5 ENUM('1', '2', '3', '4', '5') DEFAULT NULL, 
 end_survey6 ENUM('1', '2', '3', '4', '5') DEFAULT NULL, 
-end_survey7 ENUM('1', '2', '3', '4', '5') DEFAULT NULL, 
 additional_comments VARCHAR(750) DEFAULT NULL,
+followup ENUM('yes', 'no') DEFAULT NULL,
 PRIMARY KEY (user_id)
 )";
 

@@ -28,7 +28,7 @@ function send_email($email_address, $next_condition, $show_confirm=false) {
 	}
 	
 	$text = "<p>Welcome to the GradStudio Project! </p>
-			<p>We’re excited to have you join.  You will be using PeerStudio to submit and 
+			<p>We're excited to have you join.  You will be using PeerStudio to submit and 
 			review essays. </p>
 			<p><b>Here is your unique link to sign up on PeerStudio: </b><br/>
 			<a href=$link>$link</a></p>

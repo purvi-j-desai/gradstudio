@@ -11,7 +11,6 @@ function validateForm() {
 	var end_survey4 = $("input:radio[name=end_survey4]:checked").val();
 	var end_survey5 = $("input:radio[name=end_survey5]:checked").val();
 	var end_survey6 = $("input:radio[name=end_survey6]:checked").val();
-	var end_survey7 = $("input:radio[name=end_survey7]:checked").val();
 
 		
 	// Remove previous notes
@@ -63,11 +62,6 @@ function validateForm() {
 	if (!end_survey6) {
 		valid = false;
 		$("#end_survey6").find(".errorstar").css("display", "inline");
-	}
-	
-	if (!end_survey7) {
-		valid = false;
-		$("#end_survey7").find(".errorstar").css("display", "inline");
 	}
 	
 	

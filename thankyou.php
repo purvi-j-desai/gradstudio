@@ -58,7 +58,7 @@ html {
 	<h2 class="main-title">Thank you!</h2>
 </header>
 
-<p>Thanks for completing the end survey! You have now completed the Grad Studio Project!
+<p>You have now completed the Grad Studio Project!
 You should receive a confirmation email from us shortly.</p>
 <p style="color: red;">
 <?php

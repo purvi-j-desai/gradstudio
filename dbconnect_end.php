@@ -24,9 +24,11 @@ $end_survey3 = $_POST['end_survey3'];
 $end_survey4 = $_POST['end_survey4'];
 $end_survey5 = $_POST['end_survey5'];
 $end_survey6 = $_POST['end_survey6'];
-$end_survey7 = $_POST['end_survey7'];
 $additional_comments = $_POST['additional_comments'];
-
+$followup = $_POST['followup'];
+if (empty($followup)) {
+	$followup = "no";
+}
 
 
 session_start();
@@ -83,10 +85,6 @@ if (empty($end_survey6)) {
 	$_SESSION['end_survey6_error'] = "*";
 }
 
-if (empty($end_survey7)) {
-	$error = true;
-	$_SESSION['end_survey7_error'] = "*";
-}
 
 $_SESSION['error'] = $error;
 
@@ -116,8 +114,8 @@ if ($error) {
 	$_SESSION['end_survey4'] = $end_survey4;
 	$_SESSION['end_survey5'] = $end_survey5;
 	$_SESSION['end_survey6'] = $end_survey6;
-	$_SESSION['end_survey7'] = $end_survey7;
 	$_SESSION['additional_comments'] = $additional_comments;
+	$_SESSION['followup'] = $followup;
 	
 	// Go back to end survey
 	header("Location: /gradstudio/end_survey.php?user_id=$user_id");
@@ -144,7 +142,7 @@ $_SESSION['email_address'] = $email_address;
 
 if ($stmt = mysqli_prepare($dbhandle, "UPDATE survey  SET age='$age', gender='$gender', ethnicity='$ethnicity', end_survey1='$end_survey1', 
 end_survey2='$end_survey2', end_survey3='$end_survey3', end_survey4='$end_survey4', end_survey5='$end_survey5', 
-end_survey6='$end_survey6', end_survey7='$end_survey7', additional_comments= ?
+end_survey6='$end_survey6', additional_comments= ?, followup='$followup'
 WHERE user_id='$user_id'")) {
 	
 	mysqli_stmt_bind_param($stmt, "s", $additional_comments);
