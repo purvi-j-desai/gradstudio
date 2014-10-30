@@ -17,7 +17,7 @@ if (mysqli_connect_errno()) {
 //select a database to work with
 $sql = "CREATE TABLE IF NOT EXISTS survey
 (
-user_id INT NOT NULL AUTO_INCREMENT
+user_id INT NOT NULL AUTO_INCREMENT,
 email_address VARCHAR(255) NOT NULL,
 feedback_condition ENUM('review', 'outline') NOT NULL,
 is_enrolled ENUM('yes', 'no') NOT NULL,
