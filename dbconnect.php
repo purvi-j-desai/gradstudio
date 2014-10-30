@@ -39,6 +39,14 @@ beliefs14 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 age INT DEFAULT NULL,
 gender ENUM('male', 'female', 'other') DEFAULT NULL,
 ethnicity VARCHAR(255) DEFAULT NULL,
+end_survey1 ENUM('1', '2', '3', '4', '5') DEFAULT NULL, 
+end_survey2 ENUM('1', '2', '3', '4', '5') DEFAULT NULL, 
+end_survey3 ENUM('1', '2', '3', '4', '5') DEFAULT NULL, 
+end_survey4 ENUM('1', '2', '3', '4', '5') DEFAULT NULL, 
+end_survey5 ENUM('1', '2', '3', '4', '5') DEFAULT NULL, 
+end_survey6 ENUM('1', '2', '3', '4', '5') DEFAULT NULL, 
+end_survey7 ENUM('1', '2', '3', '4', '5') DEFAULT NULL, 
+additional_comments VARCHAR(750) DEFAULT NULL,
 PRIMARY KEY (email_address)
 )";
 
