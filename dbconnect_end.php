@@ -13,7 +13,7 @@ if (mysqli_connect_errno()) {
 }
 
 // Collect data from form
-$email_address = $_POST['email_address'];
+$user_id = $_POST['user_id'];
 $age = $_POST['age'];
 $gender = $_POST['gender'];
 $ethnicity = $_POST['ethnicity'];
@@ -34,12 +34,10 @@ $_SESSION = array();
 
 // Validate form data
 $error = false;
-if (empty($email_address)) {
-	$error = true;
-	$_SESSION['email_address_error'] = "*";
-} else if (!filter_var($email_address, FILTER_VALIDATE_EMAIL)) {
-	$error = true;	
-	$_SESSION['email_address_error'] = "Must be a valid email address.";
+
+if (empty($user_id)) {
+	header("Location: /gradstudio/missing_id.html");
+	exit(1);
 }
 
 if (empty($age)) {
@@ -92,12 +90,9 @@ if (empty($end_survey7)) {
 
 $_SESSION['error'] = $error;
 
-// Save email address
-$_SESSION['email_address'] = $email_address;
-
 
 // check if the user already exists in the database
-$sql = "SELECT email_address FROM survey WHERE email_address = '$email_address'";
+$sql = "SELECT user_id FROM survey WHERE user_id = '$user_id'";
 $result = mysqli_query($dbhandle, $sql);
 if (!$result) {
 	die('Error: ' . mysqli_error($dbhandle));
@@ -105,7 +100,8 @@ if (!$result) {
 if (!(mysqli_num_rows($result) > 0)) {
 	// user is not in the database
 	$error = true;
-	$_SESSION['email_address_error'] = "This email address is not in our database. Please enter the same email you used for the initial survey.";
+	header("Location: /gradstudio/missing_id.html");
+	exit(1);
 }
 
 if ($error) {
@@ -124,7 +120,7 @@ if ($error) {
 	$_SESSION['additional_comments'] = $additional_comments;
 	
 	// Go back to end survey
-	header('Location: /gradstudio/end_survey.php');
+	header("Location: /gradstudio/end_survey.php?user_id=$user_id");
 	exit(1);
 }
 
@@ -137,7 +133,7 @@ if ($error) {
 if ($stmt = mysqli_prepare($dbhandle, "UPDATE survey  SET age='$age', gender='$gender', ethnicity='$ethnicity', end_survey1='$end_survey1', 
 end_survey2='$end_survey2', end_survey3='$end_survey3', end_survey4='$end_survey4', end_survey5='$end_survey5', 
 end_survey6='$end_survey6', end_survey7='$end_survey7', additional_comments= ?
-WHERE email_address='$email_address'")) {
+WHERE user_id='$user_id'")) {
 	
 	mysqli_stmt_bind_param($stmt, "s", $additional_comments);
 	if (!mysqli_stmt_execute($stmt)) {

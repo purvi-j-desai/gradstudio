@@ -50,10 +50,15 @@ html {
 
 session_start();
 
+$user_id = $_GET['user_id'];
+if (empty($user_id)) {
+	header("Location: /gradstudio/missing_id.html");
+	exit(1);
+}
+
 // Get error and form data
 $error = $_SESSION['error'];
 
-$email_address_error = $_SESSION['email_address_error'];
 $age_error = $_SESSION['age_error'];
 $gender_error = $_SESSION['gender_error'];
 $end_survey1_error = $_SESSION['end_survey1_error'];
@@ -65,7 +70,6 @@ $end_survey6_error = $_SESSION['end_survey6_error'];
 $end_survey7_error = $_SESSION['end_survey7_error'];
 
 
-$email_address = $_SESSION['email_address'];
 $age = $_SESSION['age'];
 $gender = $_SESSION['gender'];
 $ethnicity = $_SESSION['ethnicity'];
@@ -114,13 +118,6 @@ $additional_comments = $_SESSION['additional_comments'];
 <form action="dbconnect_end.php" method="post" onsubmit="return validateForm()">
 <!-- <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validateForm()">-->
 <ul>
-	<li id="email_address">
-	<span class="errorstar">*</span>
-	<span class="server_error"><?php echo $email_address_error;?></span>
-	<b>Email address:</b>&nbsp;
-	<input type="text" name="email_address" size="40" maxlength="40" value="<?php echo $email_address ?>">
-	<span class="errornote">Must be a valid email address. *change to this email aint in database</span>
-	</li>
 	<li id="age">
 		<span class="errorstar">*</span><span class="errornote">Must be a number.</span>
 		<span class="server_error"><?php echo $age_error;?></span>
@@ -292,7 +289,7 @@ thoughtfully. Thank you!  </p>
 </p>
 
 <br/>
-
+<input type="hidden" name="user_id" value="<?php echo $user_id ?>" />
 <button class="button button-alt2" type="submit">Submit</button>
 </form>
 
