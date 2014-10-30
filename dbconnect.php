@@ -20,7 +20,7 @@ $sql = "CREATE TABLE IF NOT EXISTS survey
 email_address VARCHAR(255) NOT NULL,
 feedback_condition ENUM('review', 'outline') NOT NULL,
 is_enrolled ENUM('yes', 'no') NOT NULL,
-gpa FLOAT DEFAULT -1,
+gpa FLOAT DEFAULT NULL,
 is_native_eng ENUM('yes', 'no') NOT NULL,
 app_area VARCHAR(255) NOT NULL,
 beliefs1 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL, 
@@ -36,9 +36,9 @@ beliefs10 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 beliefs12 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 beliefs13 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
 beliefs14 ENUM('1', '2', '3', '4', '5', '6', '7') NOT NULL,
-age INT NOT NULL,
-gender ENUM('male', 'female', 'other') NOT NULL,
-ethnicity VARCHAR(255),
+age INT DEFAULT NULL,
+gender ENUM('male', 'female', 'other') DEFAULT NULL,
+ethnicity VARCHAR(255) DEFAULT NULL,
 PRIMARY KEY (email_address)
 )";
 

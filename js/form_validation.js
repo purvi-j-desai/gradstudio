@@ -4,8 +4,6 @@ function validateForm() {
 	var valid = true;
 	
 	var email_address = $("input:text[name=email_address]").val();
-	var gender = $("input:radio[name=gender]:checked").val();
-	var age = $("input:text[name=age]").val();
 	var enrolled_in_college = $("input:radio[name=enrolled_in_college]:checked").val();
 	var gpa = $("input:text[name=gpa]").val();
 	var english_speaker = $("input:radio[name=english_speaker]:checked").val();
@@ -42,23 +40,7 @@ function validateForm() {
 			valid = false;
 		}
 	} 
-	
-	if (!gender) {
-		valid = false;
-		$("#gender").find(".errorstar").css("display", "inline");
-	}
-	
-	if (!age) {
-		valid = false;
-		$("#age").find(".errorstar").css("display", "inline");
-	}
-	
-	else if (isNaN(age)) { // age must be a number
-		valid = false;
-		$("#age").find(".errorstar").css("display", "inline");
-		$("#age").find(".errornote").css("display", "inline");
-	}
-	
+
 	if (!enrolled_in_college) {
 		valid = false;
 		$("#enrolled_in_college").find(".errorstar").css("display", "inline");
