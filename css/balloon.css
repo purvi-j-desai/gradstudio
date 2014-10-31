@@ -1,20 +1,25 @@
-span {
-  text-transform: uppercase;
+#thankyou_msg {
+	position: absolute;
+	top: 275px;
+	text-align: center;
+	font-size: 180%;
+	margin: auto;
 }
+
 .balloon_container {
-  width: 800px;
+  width: 1000px;
   height: 420px;
   padding: 10px;
   margin: 0 auto;
   position: relative;
-  top: 50px;
 }
 .balloon {
-  width: 738px;
+  width: 860px;
   margin: 0 auto;
   padding-top: 30px;
   position: relative;
   font-family: 'Wendy One', sans-serif;
+  text-transform: uppercase;
 }
 .balloon > div {
   width: 104px;
@@ -100,6 +105,18 @@ span {
 .balloon > div:nth-child(6):before {
   color: rgba(242, 194, 58, 0.9);
 }
+.balloon > div:nth-child(7) {
+  background: rgba(115, 185, 255, 0.9);
+  left: 720px;
+  box-shadow: inset 10px 10px 10px rgba(64, 159, 255, 0.9);
+  -webkit-animation: balloon4 4s ease-in-out infinite;
+  -moz-animation: balloon4 4s ease-in-out infinite;
+  -o-animation: balloon4 4s ease-in-out infinite;
+  animation: balloon4 4s ease-in-out infinite;
+}
+.balloon > div:nth-child(7):before {
+  color: rgba(115, 185, 255, 0.9);
+}
 .balloon > div:before {
   color: rgba(182, 15, 97, 0.9);
   position: absolute;
@@ -108,7 +125,7 @@ span {
   content: "▲";
   font-size: 1em;
 }
-span {
+.balloon span {
   font-size: 4.8em;
   color: white;
   position: relative;
@@ -264,4 +281,3 @@ span {
     transform: translate(-15px, 10px) rotate(10deg);
   }
 }
-
