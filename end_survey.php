@@ -110,7 +110,7 @@ $followup = $_SESSION['followup'];
 <header>
 	<h2 class="main-title">End Survey</h2>
 </header>
-<p>As a thank-you for your participation, we will be inviting a randomly-selected group of 
+<p>As a thank you for your participation, we will be inviting a randomly-selected group of 
 people who complete this End Survey to submit an essay for free, in-depth editing help and 
 feedback from our team of experienced PhD researchers!</p><br/>
 <div id="errormsg" style="<?php if ($error) echo 'display: block !important'; ?>">Please answer all required questions.</div>

@@ -140,6 +140,6 @@ WHERE user_id='$user_id'")) {
 }
 
 
-header("Location: /gradstudio/thankyou.php");
+header("Location: /gradstudio/thankyou.html");
 
 ?>
