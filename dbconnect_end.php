@@ -24,6 +24,7 @@ $end_survey3 = $_POST['end_survey3'];
 $end_survey4 = $_POST['end_survey4'];
 $end_survey5 = $_POST['end_survey5'];
 $end_survey6 = $_POST['end_survey6'];
+$applying_to_program = $_POST['applying_to_program'];
 $additional_comments = $_POST['additional_comments'];
 $followup = $_POST['followup'];
 if (empty($followup)) {
@@ -114,6 +115,7 @@ if ($error) {
 	$_SESSION['end_survey4'] = $end_survey4;
 	$_SESSION['end_survey5'] = $end_survey5;
 	$_SESSION['end_survey6'] = $end_survey6;
+	$_SESSION['applying_to_program'] = $applying_to_program;
 	$_SESSION['additional_comments'] = $additional_comments;
 	$_SESSION['followup'] = $followup;
 	
@@ -129,10 +131,10 @@ if ($error) {
 
 if ($stmt = mysqli_prepare($dbhandle, "UPDATE survey  SET age='$age', gender='$gender', ethnicity='$ethnicity', end_survey1='$end_survey1', 
 end_survey2='$end_survey2', end_survey3='$end_survey3', end_survey4='$end_survey4', end_survey5='$end_survey5', 
-end_survey6='$end_survey6', additional_comments= ?, followup='$followup'
+end_survey6='$end_survey6', applying_to_program= ?, additional_comments= ?, followup='$followup'
 WHERE user_id='$user_id'")) {
 	
-	mysqli_stmt_bind_param($stmt, "s", $additional_comments);
+	mysqli_stmt_bind_param($stmt, "ss", $applying_to_program, $additional_comments);
 	if (!mysqli_stmt_execute($stmt)) {
 		die('Error: ' . mysqli_stmt_error($stmt));
 	}

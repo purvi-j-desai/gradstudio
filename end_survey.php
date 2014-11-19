@@ -268,6 +268,10 @@ thoughtfully. Thank you!  </p>
 </tr>
 </table>
 </ul><br/>
+<p id="applying_to_program">
+	<b> Please list the schools and programs you are applying to (e.g., “UC San Diego Computer Science”)</b><br/>
+	<textarea name="applying_to_program" rows="8" cols="60" maxlength="750"><?php echo $applying_to_program ?></textarea>
+</p>
 <p id="additional_comments">
 	<b>Feel free to share any additional comments or feedback: </b><br/>
 	<textarea name="additional_comments" rows="8" cols="60" maxlength="750"><?php echo $additional_comments ?></textarea>
@@ -276,8 +280,8 @@ thoughtfully. Thank you!  </p>
 <p id="followup">
 To learn more about how to help people in their applications for future projects, we’d like 
 to followup with you and learn what graduate programs you’ve been accepted into. <br/>Check here 
-to help our future research!
-<input type="checkbox" name="followup" value="yes" <?php if (isset($followup) && $followup=="yes") echo "checked";?>></input>
+to help our future research!<br/>
+<b>I agree</b> <input type="checkbox" name="followup" value="yes" <?php if (isset($followup) && $followup=="yes") echo "checked";?>></input>
 </p>
 <br/>
 <input type="hidden" name="user_id" value="<?php echo $user_id ?>" />
