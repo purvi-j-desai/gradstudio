@@ -13,7 +13,7 @@ function optout($email_address) {
 	// check if they are in the database
 	$sql = "SELECT feedback_condition FROM survey WHERE email_address = '$email_address'";
 	$result = mysqli_query($dbhandle, $sql);
-	if (!$result) {
+	if ($result->num_rows() == 0) {
 		return false;
 	} else {
 		// set opt out to true
