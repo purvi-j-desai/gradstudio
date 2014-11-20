@@ -280,7 +280,7 @@ thoughtfully. Thank you!  </p>
 <p id="followup">
 To learn more about how to help people in their applications for future projects, we’d like 
 to followup with you and learn what graduate programs you’ve been accepted into. <br/>Check here 
-to help our future research!<br/>
+to help our future research! We will only send you one followup email.<br/>
 <b>I agree</b> <input type="checkbox" name="followup" value="yes" <?php if (isset($followup) && $followup=="yes") echo "checked";?>></input>
 </p>
 <br/>
