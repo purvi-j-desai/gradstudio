@@ -11,7 +11,7 @@ function optout($email_address) {
 	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 	// check if they are in the database
-	$sql = "SELECT user_id FROM survey WHERE email_address = '$email_address'";
+	$sql = "SELECT feedback_condition FROM survey WHERE email_address = '$email_address'";
 	$result = mysqli_query($dbhandle, $sql);
 	if (!$result) {
 		return false;
