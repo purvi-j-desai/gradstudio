@@ -9,11 +9,11 @@ function send_email($email_address, $next_condition, $show_confirm=false) {
 	$mail->isSMTP();
 	$mail->Host = 'smtp.gmail.com';
 	$mail->SMTPAuth = true;
-	$mail->Username = 'GradStudioProject2@gmail.com';
+	$mail->Username = 'GradStudioProject@gmail.com';
 	$mail->Password = 'feedbackisgreat';
 	$mail->SMTPSecure = 'tls';
 	$mail->Port = 587;
-	$mail->From = 'GradStudioProject2@gmail.com';
+	$mail->From = 'GradStudioProject@gmail.com';
 	$mail->FromName = "Grad Studio";
 	$mail->addAddress($email_address);
 	$mail->WordWrap = 50;
