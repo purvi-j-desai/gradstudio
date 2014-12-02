@@ -1,4 +1,11 @@
+<?php
+
+header("Location: index.html");
+exit;
+
+?>
 <!DOCTYPE HTML>
+
 <!--
 	MegaCorp by TEMPLATED
     templated.co @templatedco
@@ -68,6 +75,7 @@ $(function() {
 
 </head>
 <body>
+
 
 <?php
 
