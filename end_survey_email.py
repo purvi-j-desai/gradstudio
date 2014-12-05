@@ -12,9 +12,9 @@ link = "http://d.ucsd.edu/gradstudio/end_survey.php?user_id="
 # ask cat
 email_subject = "GradStudio: Final Steps"
 
-email_body_1 = open("endsurvey_email1.html").read()
+email_body_1 = open("final_email1.html").read()
 
-email_body_2 = open("endsurvey_email2.html").read()
+email_body_2 = open("final_email2.html").read()
 
 fromaddr = 'Grad Studio <GradStudioProject@gmail.com>'
 
