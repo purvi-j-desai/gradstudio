@@ -1,9 +1,3 @@
-<?php
-
-header("Location: index.html");
-exit;
-
-?>
 <!DOCTYPE HTML>
 
 <!--
